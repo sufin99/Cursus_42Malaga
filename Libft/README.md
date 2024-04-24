@@ -3,9 +3,13 @@ ls
 
 Parte obligatoria
 
+
 Nombre de programa
 libft.a
+
+
 Archivos a entregar
+
 Makefile, libft.h, ft_*.c
 Makefile NAME, all, clean, fclean, re
 Funciones autorizadas
@@ -16,7 +20,11 @@ todavía no la tienes
 Descripción Escribe tu propia librería: un conjunto de
 funciones que será una herramienta muy útil a lo
 largo del cursus.
+
+
 III.1. Consideraciones técnicas
+
+
 • Declarar variables globales está prohibido.
 • Si necesitas separar una función compleja en varias, asegúrate de utilizar la palabra
 static para ello. De esta forma, las funciones se quedarán en el archivo apropiado.
@@ -29,6 +37,8 @@ prohibido.
 
 
 III.2. Parte 1 - Funciones de libc
+
+
 Para empezar, deberás rehacer algunas funciones de la libc. Tus funciones tendrán los
 mismos prototipos e implementarán los mismos comportamientos que las funciones originales. Deberán ser tal y como las describe el man. La única diferencia será la nomenclatura.
 Empezarán con el prefijo “ft_”. Por ejemplo, strlen se convertirá en ft_strlen.
@@ -36,7 +46,9 @@ Algunas funciones tienen en sus prototipos la palabra “restrict”.
 Esta palabra forma parte del estándar de c99. Por lo tanto, está
 prohibido incluirla en tus propios prototipos, así como compilar tu
 código con la flag -std=c99.
+
 Deberás escribir tus propias funciones implementando las siguientes funciones originales. No requieren de funciones autorizadas:
+
 • isalpha
 • isdigit
 • isalnum
@@ -58,19 +70,25 @@ Deberás escribir tus propias funciones implementando las siguientes funciones o
 • memcmp
 • strnstr
 • atoi
+
 Para implementar estas otras dos funciones, tendrás que utilizar malloc():
+
 • calloc
 • strdup
 
 
 III.3. Parte 2 - Funciones adicionales
+
+
 En esta segunda parte, deberás desarrollar un conjunto de funciones que, o no son de
 la librería libc, o lo son pero de una forma distinta.
 Algunas de las siguientes funciones pueden ser útiles para hacer las
 funciones de la parte 1.
 
+
 Nombre de función
 ft_substr
+
 Prototipo char *ft_substr(char const *s, unsigned int start,
 size_t len);
 Archivos a entregar
@@ -88,8 +106,10 @@ la string ’s’.
 La substring empieza desde el índice ’start’ y
 tiene una longitud máxima ’len’.
 
+
 Nombre de función
 ft_strjoin
+
 Prototipo char *ft_strjoin(char const *s1, char const *s2);
 Archivos a entregar
 -
@@ -106,6 +126,7 @@ string, formada por la concatenación de ’s1’ y
 
 Nombre de función
 ft_strtrim
+
 Prototipo char *ft_strtrim(char const *s1, char const *set);
 Archivos a entregar
 -
@@ -121,8 +142,10 @@ encontrar un caracter no perteneciente a ’set’. La
 string resultante se devuelve con una reserva de
 malloc(3)
 
+
 Nombre de función
 ft_split
+
 Prototipo char **ft_split(char const *s, char c);
 Archivos a entregar
 -
@@ -141,6 +164,7 @@ array debe terminar con un puntero NULL.
 
 Nombre de función
 ft_itoa
+
 Prototipo char *ft_itoa(int n);
 Archivos a entregar
 -
@@ -153,8 +177,10 @@ Descripción Utilizando malloc(3), genera una string que
 represente el valor entero recibido como argumento.
 Los números negativos tienen que gestionarse.
 
+
 Nombre de función
 ft_strmapi
+
 Prototipo char *ft_strmapi(char const *s, char (*f)(unsigned
 int, char));
 Archivos a entregar
@@ -175,6 +201,7 @@ de ’f’
 
 Nombre de función
 ft_striteri
+
 Prototipo void ft_striteri(char *s, void (*f)(unsigned int,
 char*));
 Archivos a entregar
@@ -189,8 +216,10 @@ Descripción A cada carácter de la string ’s’, aplica la función
 carácter dentro de ’s’ y la dirección del propio
 carácter, que podrá modificarse si es necesario.
 
+
 Nombre de función
 ft_putchar_fd
+
 Prototipo void ft_putchar_fd(char c, int fd);
 Archivos a entregar
 -
@@ -202,8 +231,10 @@ write
 Descripción Envía el carácter ’c’ al file descriptor
 especificado.
 
+
 Nombre de función
 ft_putstr_fd
+
 Prototipo void ft_putstr_fd(char *s, int fd);
 Archivos a entregar
 -
@@ -218,6 +249,7 @@ especificado.
 
 Nombre de función
 ft_putendl_fd
+
 Prototipo void ft_putendl_fd(char *s, int fd);
 Archivos a entregar
 -
@@ -229,8 +261,10 @@ write
 Descripción Envía la string ’s’ al file descriptor dado,
 seguido de un salto de línea.
 
+
 Nombre de función
 ft_putnbr_fd
+
 Prototipo void ft_putnbr_fd(int n, int fd);
 Archivos a entregar
 -
@@ -243,22 +277,28 @@ Descripción Envía el número ’n’ al file descriptor dado.
 
 
 Parte bonus
+
+
 Si completas la parte obligatoria, no dudes en llevarla más lejos haciendo esta parte
 extra. Te dará puntos adicionales si la completas correctamente.
 Las funciones para manipular memoria y strings son muy útiles... Pero pronto descubrirás que la manipulación de listas lo es incluso más.
 Deberás utilizar la siguiente estructura para representar un nodo de tu lista. Añade
 la declaración a tu archivo libft.h:
+
 typedef struct s_list
 {
 void *content;
 struct s_list *next;
 } t_list;
+
 Los miembros de la estructura t_list son:
+
 • content: la información contenida por el nodo.
 void *: permite guardar cualquier tipo de información.
 • next: la dirección del siguiente nodo, o NULL si el siguiente nodo es el último.
 En tu Makefile, añade una regla make bonus que incorpore las funciones bonus a tu
 libft.a.
+
 La parte bonus será exclusivamente evaluada si la parte obligatoria
 está perfecta. ¿Perfecta? Sí: todos los requisitos de la parte
 obligatoria deben estar correctamente completados. De otro modo,
@@ -267,8 +307,10 @@ tus bonus no serán evaluados en absoluto.
 
 Implementa las siguientes funciones para utilizar fácilmente tus listas.
 
+
 Nombre de función
 ft_lstnew
+
 Prototipo t_list *ft_lstnew(void *content);
 Archivos a entregar
 -
@@ -281,8 +323,10 @@ variable miembro ’content’ se inicializa con el
 contenido del parámetro ’content’. La variable
 ’next’, con NULL.
 
+
 Nombre de función
 ft_lstadd_front
+
 Prototipo void ft_lstadd_front(t_list **lst, t_list *new);
 Archivos a entregar
 -
@@ -295,8 +339,10 @@ Funciones autorizadas
 Ninguna
 Descripción Añade el nodo ’new’ al principio de la lista ’lst’.
 
+
 Nombre de función
 ft_lstsize
+
 Prototipo int ft_lstsize(t_list *lst);
 Archivos a entregar
 -
@@ -309,6 +355,7 @@ Descripción Cuenta el número de nodos de una lista.
 
 Nombre de función
 ft_lstlast
+
 Prototipo t_list *ft_lstlast(t_list *lst);
 Archivos a entregar
 -
@@ -318,8 +365,10 @@ Funciones autorizadas
 Ninguna
 Descripción Devuelve el último nodo de la lista.
 
+
 Nombre de función
 ft_lstadd_back
+
 Prototipo void ft_lstadd_back(t_list **lst, t_list *new);
 Archivos a entregar
 -
@@ -330,8 +379,10 @@ Funciones autorizadas
 Ninguna
 Descripción Añade el nodo ’new’ al final de la lista ’lst’.
 
+
 Nombre de función
 ft_lstdelone
+
 Prototipo void ft_lstdelone(t_list *lst, void (*del)(void
 *));
 Archivos a entregar
@@ -350,6 +401,7 @@ memoria de ’next’ no debe liberarse.
 
 Nombre de función
 ft_lstclear
+
 Prototipo void ft_lstclear(t_list **lst, void (*del)(void
 *));
 Archivos a entregar
@@ -365,8 +417,10 @@ consecutivos de ese nodo, utilizando la función
 ’del’ y free(3).
 Al final, el puntero a la lista debe ser NULL.
 
+
 Nombre de función
 ft_lstiter
+
 Prototipo void ft_lstiter(t_list *lst, void (*f)(void *));
 Archivos a entregar
 -
@@ -381,6 +435,7 @@ contenido de cada nodo.
 
 Nombre de función
 ft_lstmap
+
 Prototipo t_list *ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
 Archivos a entregar
