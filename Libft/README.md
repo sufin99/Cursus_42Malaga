@@ -88,7 +88,6 @@ funciones de la parte 1.
 
 Nombre de función
 ft_substr
-
 Prototipo char *ft_substr(char const *s, unsigned int start,
 size_t len);
 Archivos a entregar
@@ -109,7 +108,6 @@ tiene una longitud máxima ’len’.
 
 Nombre de función
 ft_strjoin
-
 Prototipo char *ft_strjoin(char const *s1, char const *s2);
 Archivos a entregar
 -
@@ -126,7 +124,6 @@ string, formada por la concatenación de ’s1’ y
 
 Nombre de función
 ft_strtrim
-
 Prototipo char *ft_strtrim(char const *s1, char const *set);
 Archivos a entregar
 -
@@ -145,7 +142,6 @@ malloc(3)
 
 Nombre de función
 ft_split
-
 Prototipo char **ft_split(char const *s, char c);
 Archivos a entregar
 -
@@ -164,7 +160,6 @@ array debe terminar con un puntero NULL.
 
 Nombre de función
 ft_itoa
-
 Prototipo char *ft_itoa(int n);
 Archivos a entregar
 -
@@ -180,7 +175,6 @@ Los números negativos tienen que gestionarse.
 
 Nombre de función
 ft_strmapi
-
 Prototipo char *ft_strmapi(char const *s, char (*f)(unsigned
 int, char));
 Archivos a entregar
@@ -201,7 +195,6 @@ de ’f’
 
 Nombre de función
 ft_striteri
-
 Prototipo void ft_striteri(char *s, void (*f)(unsigned int,
 char*));
 Archivos a entregar
@@ -219,7 +212,6 @@ carácter, que podrá modificarse si es necesario.
 
 Nombre de función
 ft_putchar_fd
-
 Prototipo void ft_putchar_fd(char c, int fd);
 Archivos a entregar
 -
@@ -234,7 +226,6 @@ especificado.
 
 Nombre de función
 ft_putstr_fd
-
 Prototipo void ft_putstr_fd(char *s, int fd);
 Archivos a entregar
 -
@@ -249,7 +240,6 @@ especificado.
 
 Nombre de función
 ft_putendl_fd
-
 Prototipo void ft_putendl_fd(char *s, int fd);
 Archivos a entregar
 -
@@ -264,7 +254,6 @@ seguido de un salto de línea.
 
 Nombre de función
 ft_putnbr_fd
-
 Prototipo void ft_putnbr_fd(int n, int fd);
 Archivos a entregar
 -
@@ -310,7 +299,6 @@ Implementa las siguientes funciones para utilizar fácilmente tus listas.
 
 Nombre de función
 ft_lstnew
-
 Prototipo t_list *ft_lstnew(void *content);
 Archivos a entregar
 -
@@ -326,7 +314,6 @@ contenido del parámetro ’content’. La variable
 
 Nombre de función
 ft_lstadd_front
-
 Prototipo void ft_lstadd_front(t_list **lst, t_list *new);
 Archivos a entregar
 -
@@ -342,7 +329,6 @@ Descripción Añade el nodo ’new’ al principio de la lista ’lst’.
 
 Nombre de función
 ft_lstsize
-
 Prototipo int ft_lstsize(t_list *lst);
 Archivos a entregar
 -
@@ -355,7 +341,6 @@ Descripción Cuenta el número de nodos de una lista.
 
 Nombre de función
 ft_lstlast
-
 Prototipo t_list *ft_lstlast(t_list *lst);
 Archivos a entregar
 -
@@ -368,7 +353,6 @@ Descripción Devuelve el último nodo de la lista.
 
 Nombre de función
 ft_lstadd_back
-
 Prototipo void ft_lstadd_back(t_list **lst, t_list *new);
 Archivos a entregar
 -
@@ -382,7 +366,6 @@ Descripción Añade el nodo ’new’ al final de la lista ’lst’.
 
 Nombre de función
 ft_lstdelone
-
 Prototipo void ft_lstdelone(t_list *lst, void (*del)(void
 *));
 Archivos a entregar
@@ -401,7 +384,6 @@ memoria de ’next’ no debe liberarse.
 
 Nombre de función
 ft_lstclear
-
 Prototipo void ft_lstclear(t_list **lst, void (*del)(void
 *));
 Archivos a entregar
@@ -420,7 +402,6 @@ Al final, el puntero a la lista debe ser NULL.
 
 Nombre de función
 ft_lstiter
-
 Prototipo void ft_lstiter(t_list *lst, void (*f)(void *));
 Archivos a entregar
 -
@@ -435,7 +416,6 @@ contenido de cada nodo.
 
 Nombre de función
 ft_lstmap
-
 Prototipo t_list *ft_lstmap(t_list *lst, void *(*f)(void *),
 void (*del)(void *));
 Archivos a entregar
