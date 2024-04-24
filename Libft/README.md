@@ -2,6 +2,7 @@
 ls
 
 Parte obligatoria
+
 Nombre de programa
 libft.a
 Archivos a entregar
