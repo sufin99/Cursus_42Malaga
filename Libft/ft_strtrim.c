@@ -17,19 +17,25 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*snew;
 	char	*start;
 	char	*end;
+	size_t	i;
 
+	i = 0;
 	if (!s1 || !set)
 		return (NULL);
 	start = (char *)s1;
-	end = (char *)s1 + strlen(s1);
-	while (*start && strchr(set, *start))
+	end = (char *)s1 + ft_strlen(s1);
+	while (*start && ft_strchr(set, *start))
 		start++;
-	while (end > start && strchr(set, *(end - 1)))
+	while (end > start && ft_strchr(set, *(end - 1)))
 		end--;
 	snew = (char *)malloc(end - start + 1);
 	if (!snew)
 		return (NULL);
-	strncpy(snew, start, end - start);
+	while (start + i < end)
+	{
+		snew[i] = start[i];
+		i++;
+	}
 	snew[end - start] = '\0';
 	return (snew);
 }

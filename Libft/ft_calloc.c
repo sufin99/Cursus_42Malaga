@@ -21,7 +21,7 @@ void	*ft_calloc(size_t num, size_t size)
 	reserve = malloc(total);
 	if (!reserve)
 		return (NULL);
-	memset(reserve, 0, total);
+	ft_memset(reserve, 0, total);
 	return (reserve);
 }
 

@@ -24,8 +24,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	s1_len = strlen(s1);
-	s2_len = strlen(s2);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
 	snew = (char *)malloc(sizeof(*snew) * (s1_len + s2_len + 1));
 	if (!snew)
 		return (NULL);
