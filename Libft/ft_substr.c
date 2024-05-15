@@ -12,7 +12,8 @@
 
 #include "libft.h"
 
-char	*loop(char *substr, char const *s, unsigned int start, size_t len)
+static	char	*loop(char *substr, char const *s,
+		unsigned int start, size_t len)
 {
 	size_t	i;
 

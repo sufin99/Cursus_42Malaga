@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 18:48:49 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 11:03:30 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:41:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		node2 = ft_lstnew(new_content);
 		if (!node2)
 		{
+			del(new_content);
 			ft_lstclear(&lst2, del);
 			return (NULL);
 		}

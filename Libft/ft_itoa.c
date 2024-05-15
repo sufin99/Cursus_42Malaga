@@ -6,13 +6,13 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 10:23:11 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/09 19:07:39 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:30:32 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_len(long n)
+static	int	get_len(long n)
 {
 	int	len;
 
