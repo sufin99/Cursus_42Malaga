@@ -6,11 +6,11 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 14:14:09 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/06/06 19:13:59 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:41:37 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int nb)
 {

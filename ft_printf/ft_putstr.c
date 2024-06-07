@@ -6,17 +6,19 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:44:53 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/06/06 19:16:57 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/06/07 12:33:05 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
+	if (!str)
+		return (0);
 	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);

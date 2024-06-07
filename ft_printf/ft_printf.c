@@ -6,11 +6,11 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:50:24 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/06/06 21:05:43 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:41:15 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static	int	ft_convert_var(char format, va_list listvar)
 {

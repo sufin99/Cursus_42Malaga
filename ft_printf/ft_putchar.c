@@ -6,11 +6,11 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:55:44 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/06/06 20:34:53 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:41:21 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(int c)
 {

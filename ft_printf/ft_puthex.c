@@ -6,11 +6,11 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 19:55:01 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/06/06 19:38:51 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/06/07 00:41:32 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_puthex(unsigned long long int nb, int upperlowercase)
 {
