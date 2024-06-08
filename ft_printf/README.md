@@ -1,6 +1,6 @@
 # Parte obligatoria
 
-# Nombre de programa
+<h2>Nombre de programa</h2>
 <h2>libftprintf.a</h2>
 
 <b>Archivos a entregar</b>
