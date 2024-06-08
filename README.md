@@ -6,3 +6,4 @@ mientras sigo este camino.
 
 Índice:
 1.  Libft
+2.	ft_printf
