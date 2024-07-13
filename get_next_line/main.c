@@ -4,9 +4,8 @@ int	main(void)
 {
 	int		fd;
 	char	*line;
-	int		count;
+	int		count = 0;
 
-	count = 0;
 	fd = open("example.txt", O_RDONLY);
 	if (fd == -1)
 	{
