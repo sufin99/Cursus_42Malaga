@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:13:15 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/07/24 16:40:56 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/07/24 16:46:04 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -77,23 +77,23 @@ static char	*sep_line(char *line_buffer)
 char	*get_next_line(int fd)
 {
 	char		*buffer;
-	static char	*left_c;
+	static char	*left_c[MAX_FD];
 	char		*re_line;
 
 	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		free(buffer);
-		free(left_c);
+		free(left_c[fd]);
 		buffer = NULL;
-		left_c = NULL;
+		left_c[fd] = NULL;
 		return (NULL);
 	}
-	re_line = read_line(fd, left_c, buffer);
+	re_line = read_line(fd, left_c[fd], buffer);
 	free(buffer);
 	buffer = NULL;
 	if (!re_line)
 		return (NULL);
-	left_c = sep_line(re_line);
+	left_c[fd] = sep_line(re_line);
 	return (re_line);
 }

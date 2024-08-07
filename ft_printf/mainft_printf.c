@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mainft_printf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 20:36:11 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/06/06 21:09:12 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/08/06 21:29:27 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	main(void)
 {
 	char	car = 'f';
-	char	str[20] = "auxilio";
+	char	*str = "auxilio";
 	char	*ptr = "si";
 	int		dec = 10;
 	int		inte = 10;
 	int		unsign = 123;
-	int		hexlow = 343;
+	int		hexlow = 185;
 	int		hexupp = 453;
 	char	porcent = '%';
 
