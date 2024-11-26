@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:16:20 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/11/22 21:43:34 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/11/25 23:37:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	ft_sendbit(int pid, int bit)
 	usleep(69);
 }
 
-void	ft_con2bit(int pid, char car)
+void	ft_con2bit(int pid, char carac)
 {
 	int	i;
 
 	i = 7;
 	while (i >= 0)
 	{
-		if ((car >> i) & 1)
+		if ((carac >> i) & 1)
 		{
 			ft_printf("1");
 			ft_sendbit(pid, 1);
@@ -61,6 +61,8 @@ int	main(int argc, char *argv[])
 		}
 		while (message[i] != '\0')
 			ft_con2bit(pid, message[i++]);
+		if (message[i] == '\0')
+			ft_con2bit(pid, 0);
 		ft_printf("\n");
 	}
 	else
