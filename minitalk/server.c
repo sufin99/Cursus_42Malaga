@@ -12,17 +12,17 @@
 
 #include "minitalk.h"
 
-void	signal_handler(int signum)
+void	signal_handler(int signum, siginfo_t *info, void *param)
 {
 	static int	count_bits = 0;
 	static char	current_char = 0;
 
+	(void) param;
 	if (signum == SIGUSR2)
 		current_char = (current_char << 1) | 1;
 	else if (signum == SIGUSR1)
 		current_char = (current_char << 1) | 0;
 	count_bits++;
-
 	if (count_bits == 8)
 	{
 		if (current_char == 0)
@@ -31,6 +31,8 @@ void	signal_handler(int signum)
 		count_bits = 0;
 		current_char = 0;
 	}
+	if (info->si_pid)
+		kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)
@@ -41,11 +43,9 @@ int	main(void)
 	pid = getpid();
 	ft_printf("Bienvenido al server de Sufián \n");
 	ft_printf("PID: %i\n", pid);
-
-	siga.sa_handler = signal_handler;
-	siga.sa_flags = SA_RESTART;
+	siga.sa_sigaction = signal_handler;
+	siga.sa_flags = SA_RESTART | SA_SIGINFO;
 	sigemptyset(&siga.sa_mask);
-
 	if (sigaction(SIGUSR1, &siga, NULL) == -1
 		|| sigaction(SIGUSR2, &siga, NULL) == -1)
 	{

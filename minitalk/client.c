@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:16:20 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/11/25 23:37:00 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/11/27 13:18:40 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_sendbit(int pid, int bit)
 		kill(pid, SIGUSR2);
 	else
 		kill(pid, SIGUSR1);
-	usleep(69);
+	usleep(1000);
 }
 
 void	ft_con2bit(int pid, char carac)
@@ -30,17 +30,23 @@ void	ft_con2bit(int pid, char carac)
 	{
 		if ((carac >> i) & 1)
 		{
-			ft_printf("1");
+			/*ft_printf("1");*/
 			ft_sendbit(pid, 1);
 		}
 		else
 		{
-			ft_printf("0");
+			/*ft_printf("0");*/
 			ft_sendbit(pid, 0);
 		}
 		i--;
 	}
-	ft_printf(" ");
+	/*ft_printf(" ");*/
+}
+
+void	confirm_handler(int signum)
+{
+	if (signum == SIGUSR1)
+		ft_printf("Recibido👌\n");
 }
 
 int	main(int argc, char *argv[])
@@ -59,11 +65,12 @@ int	main(int argc, char *argv[])
 			ft_printf("Error\n");
 			return (1);
 		}
+		signal(SIGUSR1, confirm_handler);
 		while (message[i] != '\0')
 			ft_con2bit(pid, message[i++]);
 		if (message[i] == '\0')
 			ft_con2bit(pid, 0);
-		ft_printf("\n");
+		/*ft_printf("\n");*/
 	}
 	else
 		ft_printf("Error de sintaxis: %s <PID> <mensaje>\n", argv[0]);
