@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <signal.h>
 
 void	signal_handler(int signum, siginfo_t *info, void *param)
 {

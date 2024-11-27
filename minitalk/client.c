@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:16:20 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/11/27 13:18:40 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/11/27 18:01:56 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_sendbit(int pid, int bit)
 		kill(pid, SIGUSR2);
 	else
 		kill(pid, SIGUSR1);
-	usleep(1000);
+	usleep(2000);
 }
 
 void	ft_con2bit(int pid, char carac)
@@ -29,24 +29,22 @@ void	ft_con2bit(int pid, char carac)
 	while (i >= 0)
 	{
 		if ((carac >> i) & 1)
-		{
-			/*ft_printf("1");*/
 			ft_sendbit(pid, 1);
-		}
 		else
-		{
-			/*ft_printf("0");*/
 			ft_sendbit(pid, 0);
-		}
 		i--;
 	}
-	/*ft_printf(" ");*/
 }
 
 void	confirm_handler(int signum)
 {
-	if (signum == SIGUSR1)
+	static int	count = 0;
+
+	if (signum == SIGUSR1 && !count)
+	{
 		ft_printf("Recibido👌\n");
+		count = 1;
+	}
 }
 
 int	main(int argc, char *argv[])
@@ -62,7 +60,7 @@ int	main(int argc, char *argv[])
 		message = argv[2];
 		if (pid <= 0 || message[0] == '\0')
 		{
-			ft_printf("Error\n");
+			ft_printf("Error: Introduce un PID y un mensaje válidos\n");
 			return (1);
 		}
 		signal(SIGUSR1, confirm_handler);
@@ -70,7 +68,6 @@ int	main(int argc, char *argv[])
 			ft_con2bit(pid, message[i++]);
 		if (message[i] == '\0')
 			ft_con2bit(pid, 0);
-		/*ft_printf("\n");*/
 	}
 	else
 		ft_printf("Error de sintaxis: %s <PID> <mensaje>\n", argv[0]);

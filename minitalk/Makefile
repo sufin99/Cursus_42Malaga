@@ -14,6 +14,13 @@ SRC_SERVER = server.c
 
 all: $(LIBFT) $(PRINTF) $(NAME_CLIENT) $(NAME_SERVER)
 
+CLR_RMV		:= \033[0m
+RED		    := \033[1;31m
+GREEN		:= \033[1;32m
+YELLOW		:= \033[1;33m
+BLUE		:= \033[1;34m
+CYAN 		:= \033[1;36m
+
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
@@ -21,18 +28,24 @@ $(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
 
 $(NAME_CLIENT): $(SRC_CLIENT) $(LIBFT) $(PRINTF)
-	$(CC) $(CFLAGS) $(SRC_CLIENT) $(LIBFT) $(PRINTF) -o $(NAME_CLIENT) 
+	@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME_CLIENT) ${CLR_RMV}..."
+	$(CC) $(CFLAGS) $(SRC_CLIENT) $(LIBFT) $(PRINTF) -o $(NAME_CLIENT)
+	@echo "$(GREEN)$(NAME_CLIENT) created[0m ✔️"
 
-$(NAME_SERVER): $(SRC_SERVER)
-	$(CC) $(CFLAGS) $(SRC_SERVER) -o $(NAME_SERVER) $(LIBFT) $(PRINTF)
+$(NAME_SERVER): $(SRC_SERVER) $(LIBFT) $(PRINTF)
+	@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME_SERVER) ${CLR_RMV}..."
+	$(CC) $(CFLAGS) $(SRC_SERVER) $(LIBFT) $(PRINTF) -o $(NAME_SERVER)
+	@echo "$(GREEN)$(NAME_SERVER) created[0m ✔️"
 
 clean:
 	rm -f $(NAME_CLIENT) $(NAME_SERVER)
+	@ echo "$(RED)Deleting $(CYAN)$(NAME_CLIENT) $(NAME_SERVER) $(CLR_RMV)objs ✔️"
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME_CLIENT) $(NAME_SERVER)
+	@ echo "$(RED)Deleting $(CYAN)$(NAME_CLIENT) $(NAME_SERVER) $(CLR_RMV)binary ✔️"
 	$(MAKE) -C $(LIBFT_DIR) fclean
 	$(MAKE) -C $(PRINTF_DIR) fclean
 
