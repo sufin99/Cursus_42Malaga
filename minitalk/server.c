@@ -27,13 +27,15 @@ void	signal_handler(int signum, siginfo_t *info, void *param)
 	if (count_bits == 8)
 	{
 		if (current_char == 0)
+		{
 			write(1, "\n", 1);
-		write(1, &current_char, 1);
+			kill(info->si_pid, SIGUSR1);
+		}
+		else
+			write(1, &current_char, 1);
 		count_bits = 0;
 		current_char = 0;
 	}
-	if (info->si_pid)
-		kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)

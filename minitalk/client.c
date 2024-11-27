@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 19:16:20 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/11/27 18:01:56 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/11/27 19:35:02 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_sendbit(int pid, int bit)
 		kill(pid, SIGUSR2);
 	else
 		kill(pid, SIGUSR1);
-	usleep(2000);
+	usleep(3000);
 }
 
 void	ft_con2bit(int pid, char carac)
@@ -38,12 +38,9 @@ void	ft_con2bit(int pid, char carac)
 
 void	confirm_handler(int signum)
 {
-	static int	count = 0;
-
-	if (signum == SIGUSR1 && !count)
+	if (signum == SIGUSR1)
 	{
 		ft_printf("Recibido👌\n");
-		count = 1;
 	}
 }
 
