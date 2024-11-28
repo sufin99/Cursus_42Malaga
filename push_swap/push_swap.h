@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/09/28 17:30:03 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:16:03 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <string.h>
 # include <strings.h>
 # include <stdlib.h>
-# include "libft.h"
-# include "ft_printf.h"
+# include "./ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 
 typedef struct s_stack
 {
