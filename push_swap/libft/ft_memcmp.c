@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:50:51 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:02 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:30:02 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,5 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	a = ft_memcmp(message, message2, 4);
 	printf("La letra ha sido: %d", a);
 } */
+/* Esta función compara los primeros n bytes dando un valor de retorno
+menos igual o mayor que s2 */

@@ -72,3 +72,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
     free(substr);
     return 0;
 }*/
+/* Es una función que se utiliza para
+obtener una subcadena dada, comenzando desde
+un índice específico y de una longitud */

@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:52:24 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:42 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:32:04 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ int	ft_isdigit(int c)
 	printf("%d", a);
 }
  */
+/* Imprime los números */

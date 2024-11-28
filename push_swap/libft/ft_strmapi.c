@@ -51,3 +51,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	free(str2);
 	return (0);
 }*/
+/* Sirve para aplicar una función a cada caracter de una
+string creando un nuevo string con los resultados */

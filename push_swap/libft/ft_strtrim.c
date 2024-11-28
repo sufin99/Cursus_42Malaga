@@ -50,3 +50,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	printf("La nueva cadena es: %s", sx);
 	free(sx);
 }*/
+/* Es una función que elimina caracteres
+que salen en set de la cadena. Y crea una nueva cadena
+sin lo caracteres de set */

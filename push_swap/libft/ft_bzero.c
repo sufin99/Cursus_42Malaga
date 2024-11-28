@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 12:51:16 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:59 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/17 09:57:36 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,4 @@ void	ft_bzero(void *s, size_t n)
 	printf("Cadena después del bzero: %s\n", a);
 }
  */
+/* Esta función sustituye n bytes por 0 */

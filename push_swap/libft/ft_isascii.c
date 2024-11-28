@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 11:26:07 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:45 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:32:23 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ int	ft_isascii(int c)
 	printf("%d", ft_isascii(a));
 }
  */
+/* Imprime todos losc carácteres ascii */

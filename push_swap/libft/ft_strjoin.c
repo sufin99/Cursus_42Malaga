@@ -50,3 +50,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	printf("La nueva cadena se convierte en: %s", sx);
 	free (sx);
 }*/
+/* La función strjoin sirve para concatenar 2 strings y
+la nueva cadena que se ha formado */

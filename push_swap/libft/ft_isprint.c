@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 10:24:28 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:39 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:12:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ int	ft_isprint(int c)
 	printf("%d", a);
 }
  */
+/* Imprime los caracteres imprimibles de ascii */

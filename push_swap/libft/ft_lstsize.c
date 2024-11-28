@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:21:23 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:11 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:25:47 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,6 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (num);
 }
+
+/* Sirve para contar el número de elementos
+de una lista enlazada */

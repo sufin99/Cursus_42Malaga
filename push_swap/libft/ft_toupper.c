@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:03:38 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:49:35 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:28:05 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ int	ft_toupper(int c)
 	printf("Letra después del toupper: %c\n", b);
 }
  */
+/* Función para convertir una letra minuscula en mayuscula */

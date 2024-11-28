@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 08:57:25 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 13:07:05 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/09 10:18:22 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,3 +114,16 @@ char	**ft_split(char const *s, char c)
 
 	return (0);
 } */
+/* Esta función de ft_split sirve para separar texto con un delimitador
+que eliges para crear subcadenas y ver cuantas palabras
+hay en el texto
+count_words: cuenta el número de palabras en la cadena s que están
+separadas por c.
+word_len: devuelve la longitud de la palabra comenznado por la posición
+actual de s, terminando cuando encuentra c.
+free_ar: libera memoria asignada a cada cadena en el array ar y
+luego libera la memoria asignada al propio array. se usa cuando hay un error
+durante la creación del array de palabras.
+sep: llena el array con las palabras de la cadena s. Para cada palabra,
+se reserva memoria con la función ft_substr, que devuelve una subcadena s
+que comienza en la posición actual y tiene la longitud de la palabra. */

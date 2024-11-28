@@ -24,16 +24,7 @@ t_list	*ft_lstnew(void *content)
 	return (node2);
 }
 
-/* int main()
-{
-    int data = 1;
-
-    t_list *node = ft_lstnew(&data);
-
-    if (node != NULL)
-    {
-        printf("El nodo tiene el contenido: %d\n", node->content);
-    }
-
-    return 0;
-} */
+/* Sirve para crear un nuevo elemento de una lista enlazada y asignarle
+un contenido. Será inicializado para que su contenido sea el
+puntero content proporcionado y su
+puntero next será NULL */

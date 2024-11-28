@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 16:40:51 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 13:12:37 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:59:22 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-/* int main()
-{
-    t_list *head = NULL;
-    t_list *new_node;
-
-    new_node = (t_list *)malloc(sizeof(t_list));
-    new_node->data = 1;
-    new_node->next = NULL;
-
-    ft_lstadd_back(&head, new_node);
-
-    new_node = (t_list *)malloc(sizeof(t_list));
-    new_node->data = 2;
-    new_node->next = NULL;
-
-    ft_lstadd_back(&head, new_node);
-
-    t_list *temp = head;
-    while (temp != NULL)
-    {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-
-    return 0;
-} */
+/* Sirve para añadir un nuevo elemento
+al final de una lista enlazada */

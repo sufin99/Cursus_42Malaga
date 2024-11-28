@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:32:02 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:49:56 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:04:25 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	a = ft_strnstr(total, locator, 20);
 	printf("La función ha encontrado: %s", a);
 } */
+
+/* Localiza la primera aparición de la cadena en la cadena original
+e imprime a partir de que coinicida esa cadena. Si needle es una cadena
+vacia devuelve hasytack ¡, si needle se encuentra en haystack 
+se devuelve el puntero, si needle no se encuentra
+se devuelve NULL */

@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:14:52 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:06 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/23 12:28:58 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,4 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	printf("La letra ha sido: %s", a);
 }
  */
+/* Esta función busca la letra en el string hasta n caracteres */

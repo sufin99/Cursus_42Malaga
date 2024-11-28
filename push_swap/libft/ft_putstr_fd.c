@@ -33,3 +33,5 @@ void	ft_putstr_fd(char *s, int fd)
 	ft_putstr_fd(str, 1);
 	return (0);
 }*/
+/* Escribe el contenido de una string en el descriptor
+de archivo especificado */

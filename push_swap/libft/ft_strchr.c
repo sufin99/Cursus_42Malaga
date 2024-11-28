@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:40:35 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:50:29 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/23 10:59:18 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,6 @@ char	*ft_strchr(const char *s, int c)
 	b = ft_strchr(phrse, letter);
 	printf("La función ha encontrado: %s", b);
 } */
+
+/* La función imprrime el string desde que encuentra la primera
+letra que se busca */

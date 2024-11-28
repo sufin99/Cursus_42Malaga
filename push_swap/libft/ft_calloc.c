@@ -36,3 +36,6 @@ void	*ft_calloc(size_t num, size_t size)
 	free(arr);
 	return (0);
 }*/
+/* La fuunción calloc se utiliza para asignar memoria
+dinámicamente. La memoria asigndada por calloc se
+inicializa en 0, a diferencia de malloc */

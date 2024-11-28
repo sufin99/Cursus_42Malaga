@@ -27,3 +27,6 @@ void	ft_putchar_fd(char c, int fd)
 	ft_putchar_fd(c, 2);
 	return (0);
 }*/
+/* Sirve para escribir el caracter c en el descriptor de archivo
+proporcionado (fd). El descriptor del archivo tiene que ser válido
+y disponible para escritura */

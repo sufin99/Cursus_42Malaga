@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 11:14:48 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:50:51 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/18 09:21:25 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	printf("String de destino después del memmove: %s\n", dst2);
 }
  */
+/* Es lo mismno que el ft_memcopy pero copia desde el final del String hacia el
+principio en vez desde el principio al final*/

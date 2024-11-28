@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 10:23:11 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:54:31 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:30:32 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,23 +61,6 @@ char	*ft_itoa(int n)
 
 /* int	main(void)
 {
-	int		numbers[] = {0, 123, -123, 2147483647, -2147483648};
-	char	*str;
-	int		i;
-
-	for (i = 0; i < sizeof(numbers) / sizeof(int); i++)
-	{
-		str = ft_itoa(numbers[i]);
-		if (str)
-		{
-			printf("Number: %d, String: %s\n", numbers[i], str);
-			free(str);
-		}
-		else
-		{
-			printf("Failed to convert number: %d\n", numbers[i]);
-		}
-	}
-
-	return (0);
+	
 } */
+/* Sirve para convertir un entero en un string */

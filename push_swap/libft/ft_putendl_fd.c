@@ -34,3 +34,5 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putendl_fd(str, 1);
 	return (0);
 }*/
+/* Es lo mismo que ft_putstr_fd pero seguido de
+un salto de línea */

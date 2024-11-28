@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 11:08:35 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:51:52 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:33:44 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ int	ft_isalnum(int c)
 	printf("%d", a);
 }
  */
+/* Imprime el abecedario minúscula, mayúscula y los números */

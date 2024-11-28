@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:30:48 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:49:41 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:40:03 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ int	ft_tolower(int c)
 	printf("Letra después del tolower: %c\n", b);
 }
  */
+/* Esta función convierte una letra mayúscula en minúscula */

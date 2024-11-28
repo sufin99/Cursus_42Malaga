@@ -47,3 +47,6 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putnbr_fd(n2, 1);
 	return (0);
 }*/
+/* Escribe un número entero en el archivo descriptor de
+archivo especificado. Convierte el entero a su representción
+de string. Menos en LONG-MIN que lo escribe directamente.*/

@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:42:43 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:50:16 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/23 08:16:42 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	printf("Destino después del strlcpy: %s\n", dst2);
 	printf("Longitud cadena después del strlcpy: %i", a);
 } */
+
+/* La función concatena el string de origen al string de destino asegurandose
+que la cadena resultante acabe en '\0'. La concatenación ocurre hasta un
+maximo de dstsize - strlen(dest) - 1. Solo añade caracteres a dst
+mientras q dst no exceda dstsize. El retornamiento es el total de la longitud
+inicia de dst mas la longitud de src*/

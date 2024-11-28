@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 11:19:39 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:50:08 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:31:01 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ size_t	ft_strlen(const char *s)
 	printf("%d", a);
 }
  */
+/* Cuenta los números de bytes de la cadena de carácteres */

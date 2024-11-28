@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 09:31:11 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 12:50:12 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:46:40 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	printf("Longitud cadena después del strlcpy: %i", a);
 }
  */
+/* La función ft_strlcpy copia hasta dstsize - 1 (tamaño - 1) caracteres del
+String de origen al string de destino gasarntizando que el final sea nulo '\0' */

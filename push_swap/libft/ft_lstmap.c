@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 18:48:49 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/05/15 13:24:37 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/05/15 12:41:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (lst2);
 }
+
+/* Sirve para crear una nueva lista enlazada que es
+el resultado de aplicar una función específica a cada elemento
+de una lista existente */

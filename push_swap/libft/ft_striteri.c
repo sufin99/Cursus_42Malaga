@@ -52,3 +52,5 @@ int	main(void)
 	}
 	return (0);
 }*/
+/* Sirve para aplicar la función en cada caracter
+del string directamente sin crear una nueva string */

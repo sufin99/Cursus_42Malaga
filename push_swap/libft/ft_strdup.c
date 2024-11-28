@@ -42,5 +42,8 @@ char	*ft_strdup(const char *s)
     }
     printf("Duplicated string: %s\n", reserve);
     free(reserve);
-    return (0);
+    return 0;
 }*/
+/* Esta función sirve para duplicar una cadena.
+Por si hay alguna modificación de una cadena
+no afecte a la cadena original */
