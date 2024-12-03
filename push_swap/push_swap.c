@@ -6,9 +6,20 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:41 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/08/14 14:01:31 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/03 19:51:06 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	main(int argc, char *argv[])
+{
+	if (argc == NULL)
+	{
+
+	}
+	else if (argc != 1)
+	{
+		
+	}
+}
