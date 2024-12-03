@@ -1,44 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 17:49:36 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/03 21:03:38 by szaghdad         ###   ########.fr       */
+/*   Created: 2024/12/03 21:37:36 by szaghdad          #+#    #+#             */
+/*   Updated: 2024/12/03 21:48:13 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **letter)
+void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*temp;
+	t_stack	*last;
+	t_stack	*second;
 
-	if (*letter != NULL && (*letter)->next != NULL)
-	{
-		temp = *letter;
-		*letter = (*letter)->next;
-		(*letter)->next = temp;
-	}
-}
-
-void	swap_a(t_stack **a)
-{
-	swap(a);
-	ft_printf("sa\n");
-}
-
-void	swap_b(t_stack **b)
-{
-	swap(b);
-	ft_printf("sb\n");
-}
-
-void	swap_s(t_stack **a, t_stack **b)
-{
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	second = *stack;
+	while (second->next->next != NULL)
+		second = second->next;
+	last = second->next;
+	second->next = NULL;
+	last->next = *stack;
+	*stack = last;
 }

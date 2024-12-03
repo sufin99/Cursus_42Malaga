@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 17:30:38 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/09/28 17:45:48 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:05:44 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	push_a(t_stack **a, t_stack **b)
 		*b = (*b)->next;
 		temp->next = *a;
 		*a = temp;
+		ft_printf("pa\n");
 	}
 }
 
@@ -35,5 +36,6 @@ void	push_b(t_stack **a, t_stack **b)
 		*a = (*a)->next;
 		temp->next = *b;
 		*b = temp;
+		ft_printf("pb\n");
 	}
 }
