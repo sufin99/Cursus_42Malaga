@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:37:36 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/03 21:48:13 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/05 23:23:11 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,23 @@ void	reverse_rotate(t_stack **stack)
 	second->next = NULL;
 	last->next = *stack;
 	*stack = last;
+}
+
+void	reverse_rotate_a(t_stack **a)
+{
+	reverse_rotate(a);
+	ft_printf("rra\n");
+}
+
+void	reverse_rotate_b(t_stack **b)
+{
+	reverse_rotate(b);
+	ft_printf("rrb\n");
+}
+
+void	reverse_rotate_r(t_stack **a, t_stack **b)
+{
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_printf("rrr\n");
 }

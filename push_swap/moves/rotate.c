@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:06:48 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/03 21:41:30 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/05 23:26:13 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,23 @@ void	rotate(t_stack **stack)
 	while (last->next != NULL)
 		last = last->next;
 	last->next = first;
+}
+
+void	rotate_a(t_stack **a)
+{
+	rotate(a);
+	ft_printf("ra\n");
+}
+
+void	rotate_b(t_stack **b)
+{
+	rotate(b);
+	ft_printf("rb\n");
+}
+
+void	rotate_r(t_stack **a, t_stack **b)
+{
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
 }
