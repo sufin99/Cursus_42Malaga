@@ -6,11 +6,11 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:06:48 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/05 23:26:13 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:51:12 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	rotate(t_stack **stack)
 {

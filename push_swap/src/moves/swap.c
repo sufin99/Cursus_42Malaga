@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 13:57:41 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/03 19:51:06 by szaghdad         ###   ########.fr       */
+/*   Created: 2024/09/28 17:49:36 by szaghdad          #+#    #+#             */
+/*   Updated: 2024/12/09 16:51:15 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-int	main(int argc, char *argv[])
+void	swap(t_stack **letter)
 {
-	if (argc == NULL)
-	{
+	t_stack	*temp;
 
-	}
-	else if (argc != 1)
+	if (*letter != NULL && (*letter)->next != NULL)
 	{
-		
+		temp = *letter;
+		*letter = (*letter)->next;
+		(*letter)->next = temp;
 	}
+}
+
+void	swap_a(t_stack **a)
+{
+	swap(a);
+	ft_printf("sa\n");
+}
+
+void	swap_b(t_stack **b)
+{
+	swap(b);
+	ft_printf("sb\n");
+}
+
+void	swap_s(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
+	ft_printf("ss\n");
 }

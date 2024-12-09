@@ -1,11 +1,14 @@
 NAME = push_swap
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ./ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
-SRC = push_swap.c
+SRC = 	./src/push_swap.c	\
+		./src/parsing.c		\
+		./src/utils/utils1.c	\
+		./src/utils/utils2.c		\
 
 %.o:%.c
 	$(CC) $(CFLAGS) -o $@ -c $< -I./libft

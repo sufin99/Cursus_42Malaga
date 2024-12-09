@@ -6,11 +6,11 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 17:30:38 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/03 21:05:44 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:51:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	push_a(t_stack **a, t_stack **b)
 {
