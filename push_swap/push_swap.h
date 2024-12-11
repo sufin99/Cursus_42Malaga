@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/11 20:53:31 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/11 21:04:21 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_data
 void	ft_parsing(int argc, char *argv[], t_data *data);
 int		ft_error(t_data	*data, char *str);
 void	free_ar(char **ar);
-int		ft_atops(const char *str, t_data *data);
 void	ft_freeall(t_data *data);
+int		ft_atops(const char *str, t_data *data);
 
 #endif

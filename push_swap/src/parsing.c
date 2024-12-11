@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:57:39 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/11 21:02:25 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/11 21:26:38 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ void	ft_savestr(char **argv, t_data *data)
 	data->nums_str[j] = NULL;
 }
 
+void	ft_savenum(t_data *data, int i)
+{
+	data->num_count = i;
+	data->numbers = (int *)malloc(sizeof(int) * (data->num_count));
+	if (!data->numbers)
+		ft_error(data, "Error\n");
+	i = 0;
+	while (i < data->num_count)
+	{
+		data->numbers[i] = ft_atops(data->nums_str[i], data);
+		ft_printf("Num[%i]: %i\n", i, data->numbers[i]);
+		i++;
+	}
+}
+
 void	ft_checknum(t_data *data)
 {
 	int		i;
@@ -58,17 +73,7 @@ void	ft_checknum(t_data *data)
 		ft_printf("numero entero: %s\n", data->nums_str[i]);
 		i++;
 	}
-	data->num_count = i;
-	data->numbers = (int *)malloc(sizeof(int) * (data->num_count));
-	if (!data->numbers)
-		ft_error(data, "Error\n");
-	i = 0;
-	while (i < data->num_count)
-	{
-		data->numbers[i] = ft_atops(data->nums_str[i], data);
-		ft_printf("Num[%i]: %i\n", j, data->numbers[i]);
-		i++;
-	}
+	ft_savenum(data, i);
 }
 
 void	ft_checkrepeat(t_data *data)
@@ -110,4 +115,3 @@ void	ft_parsing(int argc, char *argv[], t_data *data)
 		ft_checkrepeat(data);
 	}
 }
-
