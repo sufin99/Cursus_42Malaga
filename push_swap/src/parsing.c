@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:57:39 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/11 21:26:38 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/11 22:09:04 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_savestr(char **argv, t_data *data)
 	data->num_count = 1;
 	while (argv[data->num_count])
 		data->num_count++;
-	data->nums_str = (char **)malloc(sizeof(char *) * (data->num_count));
+	data->nums_str = (char **)malloc(sizeof(char *) * (data->num_count + 1));
 	if (!data->nums_str)
 		ft_error(data, "Error\n");
 	data->num_count = 1;
@@ -60,6 +60,8 @@ void	ft_checknum(t_data *data)
 	while (data->nums_str[i])
 	{
 		j = 0;
+		if (data->nums_str[i][j] == '\0')
+			ft_error(data, "Error\n");
 		while (data->nums_str[i][j] != '\0')
 		{
 			if (!ft_isdigit(data->nums_str[i][j])
