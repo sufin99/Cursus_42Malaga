@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/09 17:15:39 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/11 20:53:31 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string.h>
 # include <strings.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "./ft_printf/ft_printf.h"
 # include "./libft/libft.h"
 
@@ -32,8 +33,17 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-void	ft_parsing(int argc, char *argv[], t_stack **a);
-int		ft_error(void);
-int		ft_atops(const char *str);
+typedef struct s_data
+{
+	int			*numbers;
+	char		**nums_str;
+	int			num_count;
+}				t_data;
+
+void	ft_parsing(int argc, char *argv[], t_data *data);
+int		ft_error(t_data	*data, char *str);
+void	free_ar(char **ar);
+int		ft_atops(const char *str, t_data *data);
+void	ft_freeall(t_data *data);
 
 #endif
