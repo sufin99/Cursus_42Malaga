@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 17:49:36 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/09 16:51:15 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:49:36 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void	swap(t_stack **letter)
 
 	if (*letter != NULL && (*letter)->next != NULL)
 	{
-		temp = *letter;
-		*letter = (*letter)->next;
-		(*letter)->next = temp;
+		temp = (*letter)->next;
+		(*letter)->next = (temp)->next;
+		(temp)->next = (*letter);
+		(*letter) = temp;
 	}
 }
 

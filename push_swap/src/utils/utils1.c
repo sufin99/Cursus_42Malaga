@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:13:21 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/11 20:53:25 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/12 20:58:39 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,28 @@ void	ft_freeall(t_data *data)
 		free(data->numbers);
 }
 
+void	ft_freestacks(t_data *data)
+{
+	t_stack	*aux;
+
+	while (data->sa)
+	{
+		aux = data->sa;
+		data->sa = data->sa->next;
+		free(aux);
+	}
+	while (data->sb)
+	{
+		aux = data->sb;
+		data->sb = data->sb->next;
+		free(aux);
+	}
+}
+
 int	ft_error(t_data	*data, char *str)
 {
 	ft_freeall(data);
+	ft_freestacks(data);
 	ft_printf("%s", str);
 	exit(1);
 }

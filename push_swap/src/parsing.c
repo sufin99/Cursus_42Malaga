@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:57:39 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/11 22:09:04 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/12 20:45:23 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ void	ft_checknum(t_data *data)
 					|| data->nums_str[i][j] == '-')
 						&& ft_isdigit(data->nums_str[i][j + 1])))
 				ft_error(data, "Error\n");
-			ft_printf("numero: %c\n", data->nums_str[i][j]);
+			/*ft_printf("numero: %c\n", data->nums_str[i][j]);*/
 			j++;
 		}
-		ft_printf("numero entero: %s\n", data->nums_str[i]);
+		/*ft_printf("numero entero: %s\n", data->nums_str[i]);*/
 		i++;
 	}
 	ft_savenum(data, i);
