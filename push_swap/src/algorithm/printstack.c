@@ -18,6 +18,22 @@ void	ft_printstack(t_stack *sipollo)
 	{
 		ft_printf("add: %p, value: %d, index: %d, next: %p\n",
 			sipollo, sipollo->value, sipollo->index, sipollo->next);
+		ft_printf("pos: %d\n", sipollo->pos);
 		sipollo = sipollo->next;
 	}
+	ft_printf("\n");
+}
+
+void	print_stack(t_stack *stack, const char *name)
+{
+	t_stack	*current;
+
+	ft_printf("Stack %s:\n", name);
+	current = stack;
+	while (current)
+	{
+		ft_printf("Value: %d, Index: %d, Pos: %d\n", current->value, current->index, current->pos);
+		current = current->next;
+	}
+	ft_printf("\n");
 }

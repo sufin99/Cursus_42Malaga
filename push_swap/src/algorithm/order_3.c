@@ -12,17 +12,17 @@
 
 #include "../../push_swap.h"
 
-void	ft_order3(t_data *data)
+void	ft_order3(t_stack **stack, t_data *data)
 {
-	if ((data->sa->index > data->sa->next->index)
-		&& (data->sa->index > data->sa->next->next->index))
-		rotate_a(&data->sa);
-	else if ((data->sa->next->index > data->sa->index)
-		&& (data->sa->next->index > data->sa->next->next->index))
-		reverse_rotate_a(&data->sa);
-	else if ((data->sa->index > data->sa->next->index)
-		&& (data->sa->index < data->sa->next->next->index))
-		swap_a(&data->sa);
-	if (!ft_isordered(data))
-		ft_order3(data);
+	if (((*stack)->index > (*stack)->next->index)
+		&& ((*stack)->index > (*stack)->next->next->index))
+		rotate_a(stack);
+	else if (((*stack)->next->index > (*stack)->index)
+		&& ((*stack)->next->index > (*stack)->next->next->index))
+		reverse_rotate_a(stack);
+	else if (((*stack)->index > (*stack)->next->index)
+		&& ((*stack)->index < (*stack)->next->next->index))
+		swap_a(stack);
+	if (!ft_isordered(*stack))
+		ft_order3(stack, data);
 }

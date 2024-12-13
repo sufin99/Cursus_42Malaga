@@ -12,7 +12,7 @@
 
 #include "../../push_swap.h"
 
-void	ft_init_stack(t_data *data)
+void	ft_init_stack_a(t_data *data)
 {
 	t_stack	*aux;
 	int		i;
@@ -26,29 +26,22 @@ void	ft_init_stack(t_data *data)
 	}
 }
 
-int	ft_isordered(t_data	*data)
+int	ft_isordered(t_stack *stack)
 {
 	t_stack	*first;
-	int		i;
-	int		count;
 
-	i = 0;
-	count = 0;
-	first = data->sa;
-	while (data->sa != NULL)
+	first = stack;
+	while (stack != NULL && stack->next != NULL)
 	{
-		if (data->sa->value == data->numbers[i])
-			count++;
-		if (count == data->num_count)
+		if (stack->value > stack->next->value)
 		{
-			data->sa = first;
-			return (1);
+			stack = first;
+			return (0);
 		}
-		i++;
-		data->sa = data->sa->next;
+		stack = stack->next;
 	}
-	data->sa = first;
-	return (0);
+	stack = first;
+	return (1);
 }
 
 void	ft_add_index(t_data *data)
@@ -77,16 +70,19 @@ void	ft_add_index(t_data *data)
 
 void	ft_algorithm(t_data *data)
 {
-	ft_init_stack(data);
+	ft_init_stack_a(data);
 	ft_bubbleshort(data);
-	if (ft_isordered(data))
+	if (ft_isordered(data->sa))
 		return ;
 	ft_add_index(data);
 	if (data->num_count == 2)
 		swap_a(&data->sa);
 	else if (data->num_count == 3)
-		ft_order3(data);
+		ft_order3(&data->sa, data);
+	/* else if (data->num_count == 4)
+	{} */
 	else if (data->num_count > 3)
-	{}
-	ft_printstack(data->sa);
+		ft_bigorder(data->sa, data->sb, data);
+	/* ft_printstack(data->sa);
+	ft_printstack(data->sb); */
 }

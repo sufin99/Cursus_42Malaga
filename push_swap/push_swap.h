@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/13 11:10:34 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/13 20:18:38 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ void	ft_algorithm(t_data *data);
 t_stack	*ft_newnode(int value, t_data *data);
 void	ft_connectstack(t_stack **lst, t_stack *new);
 void	ft_bubbleshort(t_data *data);
-int		ft_isordered(t_data	*data);
+int		ft_isordered(t_stack *stack);
 
 void	ft_printstack(t_stack *sipollo); //debugg
+void	print_stack(t_stack *stack, const char *name); //debugg
 
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
@@ -71,6 +72,7 @@ void	reverse_rotate_a(t_stack **a);
 void	reverse_rotate_b(t_stack **b);
 void	reverse_rotate_r(t_stack **a, t_stack **b);
 
-void	ft_order3(t_data *data);
+void	ft_order3(t_stack **stack, t_data *data);
+void	ft_bigorder(t_stack	*sa, t_stack *sb, t_data *data);
 
 #endif
