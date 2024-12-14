@@ -32,7 +32,7 @@ void	print_stack(t_stack *stack, const char *name)
 	current = stack;
 	while (current)
 	{
-		ft_printf("Value: %d, Index: %d, Pos: %d\n", current->value, current->index, current->pos);
+		ft_printf("Value: %d, Index: %d, Pos: %d, TarPos: %d\n", current->value, current->index, current->pos, current->target_pos);
 		current = current->next;
 	}
 	ft_printf("\n");
