@@ -79,10 +79,8 @@ void	ft_algorithm(t_data *data)
 		swap_a(&data->sa);
 	else if (data->num_count == 3)
 		ft_order3(&data->sa, data);
-	/* else if (data->num_count == 4)
-	{} */
 	else if (data->num_count > 3)
-		ft_bigorder(data->sa, data->sb, data);
+		ft_bigorder(&data->sa, &data->sb, data);
 	/* ft_printstack(data->sa);
 	ft_printstack(data->sb); */
 }

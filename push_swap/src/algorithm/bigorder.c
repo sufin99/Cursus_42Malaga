@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:04:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/14 16:26:30 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 00:15:10 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_send2sb(t_stack **sa, t_stack **sb, t_data *data)
 	int		count;
 	int		moved;
 
-	mid_index = data->num_count / 2;
+	mid_index = (data->num_count + 1) / 2;
 	count = data->num_count;
 	moved = 0;
 	while (count > mid_index)
@@ -98,15 +98,26 @@ void	ft_addtargetpos(t_stack **sa, t_stack **sb, t_data *data)
 	}
 }
 
-void	ft_bigorder(t_stack	*sa, t_stack *sb, t_data *data)
+void	ft_bigorder(t_stack	**sa, t_stack **sb, t_data *data)
 {
-	ft_send2sb(&sa, &sb, data);
-	print_stack(sa, "SA");
-	print_stack(sb, "SB");
-	ft_order3(&sa, data);
-	ft_addpos(&sa, &sb);
-	ft_addtargetpos(&sa, &sb, data);
-	print_stack(sa, "SA");
-	print_stack(sb, "SB");
+	ft_send2sb(sa, sb, data);
+	ft_order3(sa, data);
+	ft_addcostb(sb);
+	ft_addcosta(sa);
+	print_stack(*sa, "SA");
+	print_stack(*sb, "SB");
+	while (ft_sizestack(sb) > 0)
+	{
+		ft_addpos(sa, sb);
+		ft_addtargetpos(sa, sb, data);
+		ft_addcostb(sb);
+		ft_addcosta(sa);
+		print_stack(*sa, "SA");
+		print_stack(*sb, "SB");
+		ft_costtotal(sa, sb);
+		ft_choosenode(sa, sb);
+	}
+	print_stack(*sa, "SA");
+	print_stack(*sb, "SB");
 	ft_printf("num_max: %d\n", data->num_count);
 }

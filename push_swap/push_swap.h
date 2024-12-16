@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/13 20:18:38 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/16 20:54:48 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 	int				target_pos;
 	int				cost_a;
 	int				cost_b;
+	int				cost_tot;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -73,6 +74,15 @@ void	reverse_rotate_b(t_stack **b);
 void	reverse_rotate_r(t_stack **a, t_stack **b);
 
 void	ft_order3(t_stack **stack, t_data *data);
-void	ft_bigorder(t_stack	*sa, t_stack *sb, t_data *data);
+void	ft_bigorder(t_stack	**sa, t_stack **sb, t_data *data);
+
+int		ft_sizestack(t_stack **stack);
+
+void	ft_addcostb(t_stack **sb);
+void	ft_addcosta(t_stack **sa);
+void	ft_costtotal(t_stack **sa, t_stack **sb);
+void	ft_choosenode(t_stack **sa, t_stack **sb);
+
+void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 
 #endif

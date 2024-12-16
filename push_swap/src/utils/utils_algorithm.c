@@ -16,7 +16,7 @@ t_stack	*ft_newnode(int value, t_data *data)
 {
 	t_stack	*node;
 
-	node = malloc(sizeof(t_stack));
+	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)
 		ft_error(data, "Error\n");
 	ft_memset(node, 0, sizeof(t_stack));
@@ -45,4 +45,19 @@ void	ft_connectstack(t_stack **lst, t_stack *new)
 		last = ft_stacklast(*lst);
 		last->next = new;
 	}
+}
+
+int	ft_sizestack(t_stack **stack)
+{
+	t_stack	*current;
+	int		i;
+
+	i = 0;
+	current = *stack;
+	while (current)
+	{
+		i++;
+		current = current->next;
+	}
+	return (i);
 }

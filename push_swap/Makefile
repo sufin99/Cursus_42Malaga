@@ -19,6 +19,7 @@ SRC = 	./src/push_swap.c				\
 		./src/moves/reverse_rotate.c	\
 		./src/algorithm/order_3.c		\
 		./src/algorithm/bigorder.c		\
+		./src/algorithm/costs.c			\
 
 %.o:%.c
 	$(CC) $(CFLAGS) -o $@ -c $< -I./libft
