@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:13:21 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/12 20:58:39 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:15:38 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int	ft_error(t_data	*data, char *str)
 {
 	ft_freeall(data);
 	ft_freestacks(data);
-	ft_printf("%s", str);
+	ft_putstr_fd(str,2);
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:23:34 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/17 12:03:18 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:01:11 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ int	ft_mincost(t_stack *sb)
 
 void	ft_movestacks(t_stack **sa, t_stack **sb, int csa, int csb)
 {
-	/*print_stack(*sa, "SA");
-	print_stack(*sb, "SB");*/
+	/* print_stack(*sa, "SA");
+	print_stack(*sb, "SB"); */
 	/* printf("CostA: %d, CostB: %d\n", (*sa)->cost_a, (*sb)->cost_b); */
 	while (csa > 0 && csb > 0)
 	{

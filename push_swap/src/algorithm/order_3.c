@@ -14,6 +14,7 @@
 
 void	ft_order3(t_stack **stack, t_data *data)
 {
+	/* print_stack(*stack, "SA"); */
 	if (((*stack)->index > (*stack)->next->index)
 		&& ((*stack)->index > (*stack)->next->next->index))
 		rotate_a(stack);

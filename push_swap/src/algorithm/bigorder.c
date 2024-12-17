@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:04:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/17 14:48:46 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 23:05:22 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_send2sb(t_stack **sa, t_stack **sb, t_data *data)
 	int		count;
 	int		moved;
 
-	mid_index = (data->num_count + 1) / 2;
+	mid_index = (data->num_count) / 2;
 	count = data->num_count;
 	moved = 0;
 	while (count > mid_index)
