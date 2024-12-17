@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/16 20:54:48 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:20:12 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,5 @@ void	ft_addcosta(t_stack **sa);
 void	ft_costtotal(t_stack **sa, t_stack **sb);
 void	ft_choosenode(t_stack **sa, t_stack **sb);
 
-void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 
 #endif

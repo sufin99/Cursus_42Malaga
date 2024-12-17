@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:23:34 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/17 00:09:13 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 12:03:18 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,42 +96,52 @@ int	ft_mincost(t_stack *sb)
 	return (min);
 }
 
-void	ft_movestacks(t_stack **sa, t_stack **sb)
+void	ft_movestacks(t_stack **sa, t_stack **sb, int csa, int csb)
 {
+	/*print_stack(*sa, "SA");
+	print_stack(*sb, "SB");*/
 	/* printf("CostA: %d, CostB: %d\n", (*sa)->cost_a, (*sb)->cost_b); */
-	while ((*sa)->cost_a > 0 && (*sb)->cost_b > 0)
+	while (csa > 0 && csb > 0)
 	{
 		rotate_r(sa, sb);
-		(*sa)->cost_a--;
-		(*sb)->cost_b--;
+		csa--;
+		csb--;
 	}
-	while ((*sa)->cost_a < 0 && (*sb)->cost_b < 0)
+	while (csa < 0 && csb < 0)
 	{
 		reverse_rotate_r(sa, sb);
-		(*sa)->cost_a++;
-		(*sb)->cost_b++;
+		csa++;
+		csb++;
 	}
-	while ((*sb)->cost_b < 0)
+	if (csa == 0 && (csb < 0 || csb > 0))
 	{
-		reverse_rotate_b(sb);
-		(*sb)->cost_b++;
+		while (csb < 0)
+		{
+			reverse_rotate_b(sb);
+			csb++;
+		}
+		while (csb > 0)
+		{
+			rotate_b(sb);
+			csb--;
+		}
 	}
-	while ((*sb)->cost_b > 0)
+	if (csb == 0 && (csa < 0 || csa > 0))
 	{
-		rotate_b(sb);
-		(*sb)->cost_b--;
+		while (csa < 0)
+		{
+			reverse_rotate_a(sa);
+			csa++;
+		}
+		while (csa > 0)
+		{
+			rotate_a(sa);
+			csa--;
+		}
 	}
-	while ((*sa)->cost_a < 0)
-	{
-		reverse_rotate_a(sa);
-		(*sa)->cost_a++;
-	}
-	while ((*sa)->cost_a > 0)
-	{
-		rotate_a(sa);
-		(*sa)->cost_a--;
-	}
-	/* if ((*sb)->cost_b == 0 && (*sa)->cost_a == 0)
+	/*print_stack(*sa, "SA");
+	print_stack(*sb, "SB");*/
+	/* if (csb == 0 && (*sa)->cost_a == 0)
 		push_a(sa, sb); */
 	/* print_stack((*sa), "SA");
 	print_stack((*sb), "SB"); */
@@ -152,7 +162,7 @@ void	ft_choosenode(t_stack **sa, t_stack **sb)
 			{
 				if (current_sb->target_pos == current_sa->pos)
 				{
-					ft_movestacks(&current_sa, &current_sb);
+					ft_movestacks(sa, sb, current_sa->cost_a, current_sb->cost_b);
 					/* print_stack(*sa, "SA");
 					print_stack(*sb, "SB"); */
 					push_a(sa, sb);

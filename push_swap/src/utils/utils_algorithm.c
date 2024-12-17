@@ -21,6 +21,7 @@ t_stack	*ft_newnode(int value, t_data *data)
 		ft_error(data, "Error\n");
 	ft_memset(node, 0, sizeof(t_stack));
 	node->value = value;
+	node->target_pos = -1;
 	node->next = NULL;
 	return (node);
 }

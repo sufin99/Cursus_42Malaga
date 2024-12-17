@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:57:39 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/16 23:37:27 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:48:59 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_savenum(t_data *data, int i)
 	while (i < data->num_count)
 	{
 		data->numbers[i] = ft_atops(data->nums_str[i], data);
-		ft_printf("Num[%i]: %i\n", i, data->numbers[i]);
+		/*ft_printf("Num[%i]: %i\n", i, data->numbers[i]);*/
 		i++;
 	}
 }
