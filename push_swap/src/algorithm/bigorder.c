@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:04:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/17 23:05:22 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:04:04 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,18 @@ void	ft_send2sb(t_stack **sa, t_stack **sb, t_data *data)
 			rotate_a(sa);
 		count--;
 	}
-	count = data->num_count;
-	while (count - moved > 3)
+	count = data->num_count - moved;
+	while (count > 3)
 	{
-		push_b(sa, sb);
+		/*ft_printf("count: %d\n", count);*/
+		if ((*sa)->index <= (data->num_count - 3))
+			push_b(sa, sb);
+		else
+		{
+			/*ft_printf("llego");*/
+			rotate_a(sa);
+			count++;
+		}
 		count--;
 	}
 }
@@ -63,7 +71,7 @@ void	ft_addpos(t_stack **sa, t_stack	**sb)
 	}
 }
 
-void	ft_addtargetpos(t_stack *sa, t_stack **sb, int intex)
+void	ft_addtargetpos(t_stack *sa, t_stack **sb, int intex, t_data *data)
 {
 	t_stack	*current_sb;
 	t_stack	*current_sa;
@@ -88,6 +96,11 @@ void	ft_addtargetpos(t_stack *sa, t_stack **sb, int intex)
 					(*sb)->target_pos = sa->pos;
 					intex = sa->index;
 				}
+			}
+			else if ((*sb)->value == data->num_count)
+			{
+				if (sa->index == 1)
+					(*sb)->target_pos = sa->pos;
 			}
 			sa = sa->next;
 		}
@@ -127,13 +140,16 @@ void	ft_ordersa(t_stack **sa)
 void	ft_bigorder(t_stack	**sa, t_stack **sb, t_data *data)
 {
 	ft_send2sb(sa, sb, data);
-	ft_order3(sa, data);
+	if (ft_sizestack(sa) == 2 && !ft_isordered(*sa))
+		swap_a(sa);
+	else if (ft_sizestack(sa) == 3 && !ft_isordered(*sa))
+		ft_order3(sa, data);
 	/*print_stack(*sa, "SA");
 	print_stack(*sb, "SB");*/
 	while (ft_sizestack(sb) > 0)
 	{
 		ft_addpos(sa, sb);
-		ft_addtargetpos(*sa, sb, 0);
+		ft_addtargetpos(*sa, sb, 0, data);
 		ft_addcostb(sb);
 		ft_addcosta(sa);
 		ft_costtotal(sa, sb);
@@ -144,7 +160,7 @@ void	ft_bigorder(t_stack	**sa, t_stack **sb, t_data *data)
 	ft_addpos(sa, sb);
 	ft_addcosta(sa);
 	ft_ordersa(sa);
-/*	print_stack(*sa, "SA");
+	/*print_stack(*sa, "SA");
 	print_stack(*sb, "SB");*/
 	/*ft_printf("num_max: %d\n", data->num_count);*/
 }

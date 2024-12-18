@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:57:39 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/17 23:11:47 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:25:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ft_checknum(t_data *data)
 {
 	int		i;
 	int		j;
+	int		exit;
 
 	data->num_count = 0;
 	i = 0;
@@ -62,19 +63,31 @@ void	ft_checknum(t_data *data)
 		j = 0;
 		if (data->nums_str[i][j] == '\0')
 			ft_error(data, "Error\n");
+		exit = 0;
 		while (data->nums_str[i][j] != '\0')
 		{
-			if (!ft_isdigit(data->nums_str[i][j])
+			if (((data->nums_str[i][0] == '+' || data->nums_str[i][0] == '-') && data->nums_str[i][j + 1] != '\0') && exit == 0)
+			{
+				j++;
+				exit = 1;
+			}
+			if (!ft_isdigit(data->nums_str[i][j]))
+				ft_error(data, "Error\n");
+			/*if (!ft_isdigit(data->nums_str[i][j])
 				&& !((data->nums_str[i][j] == '+'
 					|| data->nums_str[i][j] == '-')
 						&& ft_isdigit(data->nums_str[i][j + 1])))
 				ft_error(data, "Error\n");
+			else if ((ft_isdigit(data->nums_str[i][j]) && (!ft_isdigit(data->nums_str[i][j]) || !(data->nums_str[i][j + 1] == ' '))))
+				ft_error(data, "Error\n");*/
 			/*ft_printf("numero: %c\n", data->nums_str[i][j]);*/
 			j++;
 		}
 		/*ft_printf("numero entero: %s\n", data->nums_str[i]);*/
 		i++;
 	}
+	if (i == 0)
+		ft_error(data, "Error\n");
 	ft_savenum(data, i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:23:34 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/17 23:01:11 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:03:15 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,31 +113,25 @@ void	ft_movestacks(t_stack **sa, t_stack **sb, int csa, int csb)
 		csa++;
 		csb++;
 	}
-	if (csa == 0 && (csb < 0 || csb > 0))
+	while (csb < 0)
 	{
-		while (csb < 0)
-		{
-			reverse_rotate_b(sb);
-			csb++;
-		}
-		while (csb > 0)
-		{
-			rotate_b(sb);
-			csb--;
-		}
+		reverse_rotate_b(sb);
+		csb++;
 	}
-	if (csb == 0 && (csa < 0 || csa > 0))
+	while (csb > 0)
 	{
-		while (csa < 0)
-		{
-			reverse_rotate_a(sa);
-			csa++;
-		}
-		while (csa > 0)
-		{
-			rotate_a(sa);
-			csa--;
-		}
+		rotate_b(sb);
+		csb--;
+	}
+	while (csa < 0)
+	{
+		reverse_rotate_a(sa);
+		csa++;
+	}
+	while (csa > 0)
+	{
+		rotate_a(sa);
+		csa--;
 	}
 	/*print_stack(*sa, "SA");
 	print_stack(*sb, "SB");*/
@@ -151,17 +145,22 @@ void	ft_choosenode(t_stack **sa, t_stack **sb)
 {
 	t_stack	*current_sa;
 	t_stack	*current_sb;
+	int		min;
 
+	min = ft_mincost(*sb);
+	/*ft_printf("%d\n", min);*/
 	current_sb = *sb;
 	while (current_sb)
 	{
-		if (current_sb->cost_tot == ft_mincost(current_sb))
+		if (current_sb->cost_tot == min)
 		{
+			/*ft_printf("%d, value: %d\n", current_sb->cost_tot, current_sb->value);*/
 			current_sa = *sa;
 			while (current_sa)
 			{
 				if (current_sb->target_pos == current_sa->pos)
 				{
+					/*ft_printf("value: %d, tarposb: %d, posa: %d\n", current_sb->value, current_sb->target_pos, current_sa->pos);*/
 					ft_movestacks(sa, sb, current_sa->cost_a, current_sb->cost_b);
 					/* print_stack(*sa, "SA");
 					print_stack(*sb, "SB"); */
