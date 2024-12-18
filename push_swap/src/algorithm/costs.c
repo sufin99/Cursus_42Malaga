@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:23:34 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/18 13:26:21 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:25:36 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,6 @@ void	ft_choosenode(t_stack **sa, t_stack **sb)
 			current_sa = *sa;
 			while (current_sa)
 			{
-				/*ft_printf("llego\n");*/
 				if (current_sb->target_pos == current_sa->pos)
 				{
 					/*ft_printf("value: %d, tarposb: %d, posa: %d\n", current_sb->value, current_sb->target_pos, current_sa->pos);*/
