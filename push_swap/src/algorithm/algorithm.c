@@ -81,6 +81,4 @@ void	ft_algorithm(t_data *data)
 		ft_order3(&data->sa, data);
 	else if (data->num_count > 3)
 		ft_bigorder(&data->sa, &data->sb, data);
-	/* ft_printstack(data->sa);
-	ft_printstack(data->sb); */
 }

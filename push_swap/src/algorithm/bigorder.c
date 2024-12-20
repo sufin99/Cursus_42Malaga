@@ -6,24 +6,37 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:04:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/18 14:24:52 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/20 01:54:12 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+void	ft_sendallsavethree(t_stack **sa, t_stack **sb, t_data *data, int count)
+{
+	while (count > 3)
+	{
+		if ((*sa)->index <= (data->num_count - 3))
+			push_b(sa, sb);
+		else
+		{
+			rotate_a(sa);
+			count++;
+		}
+		count--;
+	}
+}
+
 void	ft_send2sb(t_stack **sa, t_stack **sb, t_data *data)
 {
-	int		mid_index;
 	int		count;
 	int		moved;
 
-	mid_index = (data->num_count) / 2;
 	count = data->num_count;
 	moved = 0;
-	while (count > mid_index)
+	while (count > (data->num_count / 2))
 	{
-		if ((*sa)->index <= mid_index)
+		if ((*sa)->index <= (data->num_count / 2))
 		{
 			push_b(sa, sb);
 			moved++;
@@ -33,41 +46,32 @@ void	ft_send2sb(t_stack **sa, t_stack **sb, t_data *data)
 		count--;
 	}
 	count = data->num_count - moved;
-	while (count > 3)
-	{
-		/*ft_printf("count: %d\n", count);*/
-		if ((*sa)->index <= (data->num_count - 3))
-			push_b(sa, sb);
-		else
-		{
-			/*ft_printf("llego");*/
-			rotate_a(sa);
-			count++;
-		}
-		count--;
-	}
+	ft_sendallsavethree(sa, sb, data, count);
 }
 
-void	ft_addpos(t_stack **sa, t_stack	**sb)
+void	ft_auxaddtarget(t_stack *sa, t_stack **sb, int intex, t_data *data)
 {
-	t_stack	*current;
-	int		pos;
-
-	current = *sa;
-	pos = 0;
-	while (current)
+	while (sa)
 	{
-		current->pos = pos;
-		pos++;
-		current = current->next;
-	}
-	current = *sb;
-	pos = 0;
-	while (current)
-	{
-		current->pos = pos;
-		pos++;
-		current = current->next;
+		if (sa->index > (*sb)->index)
+		{
+			if ((*sb)->target_pos == -1)
+			{
+				intex = sa->index;
+				(*sb)->target_pos = sa->pos;
+			}
+			if (sa->index < intex)
+			{
+				(*sb)->target_pos = sa->pos;
+				intex = sa->index;
+			}
+		}
+		else if ((*sb)->value == data->num_count)
+		{
+			if (sa->index == 1)
+				(*sb)->target_pos = sa->pos;
+		}
+		sa = sa->next;
 	}
 }
 
@@ -82,85 +86,26 @@ void	ft_addtargetpos(t_stack *sa, t_stack **sb, int intex, t_data *data)
 	{
 		sa = current_sa;
 		(*sb)->target_pos = -1;
-		while (sa)
-		{
-			if (sa->index > (*sb)->index)
-			{
-				if ((*sb)->target_pos == -1)
-				{
-					intex = sa->index;
-					(*sb)->target_pos = sa->pos;
-				}
-				if (sa->index < intex)
-				{
-					(*sb)->target_pos = sa->pos;
-					intex = sa->index;
-				}
-			}
-			else if ((*sb)->value == data->num_count)
-			{
-				if (sa->index == 1)
-					(*sb)->target_pos = sa->pos;
-			}
-			sa = sa->next;
-		}
+		ft_auxaddtarget(sa, sb, intex, data);
 		(*sb) = (*sb)->next;
 	}
 	*sb = current_sb;
 }
 
-void	ft_ordersa(t_stack **sa)
-{
-	t_stack	*current_sa;
-	int		csa;
-
-	current_sa = *sa;
-	csa = 0;
-	while (current_sa)
-	{
-		if (current_sa->index == 1)
-		{
-			csa = current_sa->cost_a;
-			break ;
-		}
-		current_sa = current_sa->next;
-	}
-	while (csa > 0)
-	{
-		rotate_a(sa);
-		csa--;
-	}
-	while (csa < 0)
-	{
-		reverse_rotate_a(sa);
-		csa++;
-	}
-}
-
 void	ft_bigorder(t_stack	**sa, t_stack **sb, t_data *data)
 {
 	ft_send2sb(sa, sb, data);
-	if (ft_sizestack(sa) == 2 && !ft_isordered(*sa))
-		swap_a(sa);
-	else if (ft_sizestack(sa) == 3 && !ft_isordered(*sa))
+	if (ft_sizestack(sa) == 3 && !ft_isordered(*sa))
 		ft_order3(sa, data);
-	/*print_stack(*sa, "SA");
-	print_stack(*sb, "SB");*/
 	while (ft_sizestack(sb) > 0)
 	{
 		ft_addpos(sa, sb);
 		ft_addtargetpos(*sa, sb, 0, data);
-		ft_addcostb(sb);
-		ft_addcosta(sa);
-		ft_costtotal(sa, sb);
-		/*print_stack(*sa, "SA");
-		print_stack(*sb, "SB");*/
+		ft_addcost(sb, 0);
+		ft_addcost(sa, 1);
 		ft_choosenode(sa, sb);
 	}
 	ft_addpos(sa, sb);
-	ft_addcosta(sa);
+	ft_addcost(sa, 1);
 	ft_ordersa(sa);
-	/*print_stack(*sa, "SA");
-	print_stack(*sb, "SB");*/
-	/*ft_printf("num_max: %d\n", data->num_count);*/
 }

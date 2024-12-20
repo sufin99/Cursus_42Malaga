@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 13:57:55 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/12/18 09:18:10 by szaghdad         ###   ########.fr       */
+/*   Updated: 2024/12/20 02:04:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void	ft_connectstack(t_stack **lst, t_stack *new);
 void	ft_bubbleshort(t_data *data);
 int		ft_isordered(t_stack *stack);
 
-void	ft_printstack(t_stack *sipollo); //debugg
-void	print_stack(t_stack *stack, const char *name); //debugg
+void	print_stack(t_stack *stack, const char *name);
 
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
@@ -78,10 +77,15 @@ void	ft_bigorder(t_stack	**sa, t_stack **sb, t_data *data);
 
 int		ft_sizestack(t_stack **stack);
 
-void	ft_addcostb(t_stack **sb);
-void	ft_addcosta(t_stack **sa);
-void	ft_costtotal(t_stack **sa, t_stack **sb);
+void	ft_addcost(t_stack **stack, int is_sa);
+void	ft_ordersa(t_stack **sa);
+void	ft_addpos(t_stack **sa, t_stack	**sb);
+void	ft_moveonlysa(t_stack **sa, int csa);
+void	ft_moveonlysb(t_stack **sb, int csb);
 void	ft_choosenode(t_stack **sa, t_stack **sb);
 
+int		ft_abs(int n);
+int		ft_max(int a, int b);
+int		ft_find_cost_a(t_stack *sa, int target_pos);
 
 #endif

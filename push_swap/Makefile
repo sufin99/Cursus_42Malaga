@@ -10,16 +10,18 @@ SRC = 	./src/push_swap.c				\
 		./src/utils/utils1.c			\
 		./src/utils/utils2.c			\
 		./src/utils/utils_algorithm.c	\
+		./src/utils/utils_bigorder.c	\
+		./src/utils/utils_cost.c		\
 		./src/algorithm/algorithm.c 	\
 		./src/algorithm/printstack.c    \
 		./src/algorithm/bubble.c    	\
+		./src/algorithm/order_3.c		\
+		./src/algorithm/bigorder.c		\
+		./src/algorithm/costs.c			\
 		./src/moves/swap.c				\
 		./src/moves/push.c				\
 		./src/moves/rotate.c			\
 		./src/moves/reverse_rotate.c	\
-		./src/algorithm/order_3.c		\
-		./src/algorithm/bigorder.c		\
-		./src/algorithm/costs.c			\
 
 %.o:%.c
 	$(CC) $(CFLAGS) -o $@ -c $< -I./libft

@@ -38,11 +38,4 @@ void	ft_bubbleshort(t_data *data)
 			notswap++;
 		j++;
 	}
-	i = 0;
-	while (i < data->num_count)
-	{
-		/*ft_printf("tmp: %d ", data->numbers[i]);*/
-		i++;
-	}
-	/*ft_printf("\n");*/
 }
