@@ -13,7 +13,6 @@ SRC = 	./src/push_swap.c				\
 		./src/utils/utils_bigorder.c	\
 		./src/utils/utils_cost.c		\
 		./src/algorithm/algorithm.c 	\
-		./src/algorithm/printstack.c    \
 		./src/algorithm/bubble.c    	\
 		./src/algorithm/order_3.c		\
 		./src/algorithm/bigorder.c		\
