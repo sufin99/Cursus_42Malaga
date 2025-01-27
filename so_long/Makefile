@@ -1,5 +1,5 @@
 NAME = so_long
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
@@ -7,7 +7,7 @@ PRINTF_DIR = ./ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 GNL_DIR = ./get_next_line
 GNL = $(GNL_DIR)/get_next_line.a
-SRC = 
+SRC = ./src/so_long.c    \
 
 
 %.o:%.c

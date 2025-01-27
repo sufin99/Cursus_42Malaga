@@ -1,7 +1,7 @@
-NAME = libftprintf.a
+NAME = get_next_line.a
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-SRC = $(wildcard *.c)
+SRC = $(wildcard *_bonus.c)
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
