@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)

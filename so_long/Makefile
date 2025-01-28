@@ -1,5 +1,5 @@
 NAME = so_long
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a

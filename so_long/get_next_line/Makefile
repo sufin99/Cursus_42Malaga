@@ -1,5 +1,5 @@
 NAME = get_next_line.a
-CC = clang
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRC = $(wildcard *_bonus.c)
 OBJ = $(SRC:.c=.o)
