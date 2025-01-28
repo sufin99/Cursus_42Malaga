@@ -6,13 +6,13 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:13:15 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/07/24 16:40:56 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:30:36 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen1(const char *s)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ static char	*sep_line(char *line_buffer)
 		i++;
 	if (line_buffer[i] == '\0' || line_buffer[1] == '\0')
 		return (NULL);
-	left_c = ft_substr(line_buffer, i + 1, ft_strlen(line_buffer) - i);
+	left_c = ft_substr(line_buffer, i + 1, ft_strlen1(line_buffer) - i);
 	if (*left_c == '\0')
 	{
 		free(left_c);

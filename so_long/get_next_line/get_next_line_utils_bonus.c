@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 18:38:13 by szaghdad          #+#    #+#             */
-/*   Updated: 2024/07/24 16:44:05 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/01/28 21:32:02 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 
 	i = 0;
-	len = ft_strlen(s) + 1;
+	len = ft_strlen1(s) + 1;
 	reserve = (char *)malloc(len);
 	if (!reserve)
 		return (NULL);
@@ -56,8 +56,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
+	s1_len = ft_strlen1(s1);
+	s2_len = ft_strlen1(s2);
 	snew = (char *)malloc(sizeof(*snew) * (s1_len + s2_len + 1));
 	if (!snew)
 		return (NULL);
@@ -95,7 +95,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	lens = ft_strlen(s);
+	lens = ft_strlen1(s);
 	if (start >= lens)
 	{
 		substr = malloc(sizeof(char));

@@ -7,7 +7,9 @@ PRINTF_DIR = ./ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 GNL_DIR = ./get_next_line
 GNL = $(GNL_DIR)/get_next_line.a
-SRC = ./src/so_long.c    \
+SRC =	./src/so_long.c			\
+		./src/parsing.c			\
+		./src/utils/utils1.c	\
 
 
 %.o:%.c
