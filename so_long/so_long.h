@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:02:17 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/01/28 21:44:18 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:13:01 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,27 @@
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line_bonus.h"
 
-typedef	struct s_data
+typedef struct s_data
 {
 	char		**map;
 	int			map_sz;
 	int			map_ct;
 	int			len_line;
+	int			count_p;
+	int			count_e;
+	int			count_c;
 }				t_data;
+
+typedef struct s_point
+{
+	int			x;
+	int			y;
+}				t_point;
+
 
 void	ft_parsing(t_data *data);
 
 int		ft_error(t_data	*data, char *str);
+void	flood_fill(char **tab, t_point size, t_point begin);
 
 #endif

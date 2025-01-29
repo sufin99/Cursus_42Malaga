@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:00:31 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/01/28 22:11:04 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:07:08 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,25 @@ void	save_map(char *str, t_data *data)
 	if (fd == -1)
 	{
 		ft_putstr_fd("Error\n", 2);
-		return ;
+		exit(1);
 	}
 	data->map = (char **)malloc(sizeof(char *) * (data->map_ct + 1));
 	if (!data->map)
 	{
 		ft_putstr_fd("Error\n", 2);
 		close (fd);
-		return ;
+		exit(1);
 	}
 	line = get_next_line(fd);
+	if (line == NULL)
+		ft_error(data, "Error\n");
 	data->len_line = ft_strlen(line);
 	while (line != NULL)
 	{
 		if (data->map_sz >= data->map_ct)
 		{
 			data->map_ct *= 2;
-			new_map = (char **)malloc(sizeof(char*) * (data->map_ct + 1));
+			new_map = (char **)malloc(sizeof(char *) * (data->map_ct + 1));
 			if (!new_map)
 			{
 				ft_putstr_fd("Error\n", 2);
@@ -73,18 +75,29 @@ void	save_map(char *str, t_data *data)
 		/*free(data->map[i]);*/
 		i++;
 	}
+	ft_printf("\n");
 }
 
 int	main(int argc, char *argv[])
 {
 	t_data	data;
+	char	*ext;
 
 	ft_memset(&data, 0, sizeof(t_data));
 	if (argc == 2)
 	{
-		save_map(argv[1], &data);
-		ft_parsing(&data);
-		free(data.map);
+		ext = ft_strrchr(argv[1], '.');
+		if (ext && strcmp(ext, ".ber") == 0)
+		{
+			save_map(argv[1], &data);
+			ft_parsing(&data);
+			free(data.map);
+		}
+		else
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
 	}
 	else
 	{

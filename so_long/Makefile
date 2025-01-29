@@ -10,6 +10,7 @@ GNL = $(GNL_DIR)/get_next_line.a
 SRC =	./src/so_long.c			\
 		./src/parsing.c			\
 		./src/utils/utils1.c	\
+		./src/utils/flood_fill.c	\
 
 
 %.o:%.c
