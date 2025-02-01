@@ -6,73 +6,76 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:00:31 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/01/29 18:07:08 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:02:10 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+void	free_maperror(t_data *data, char *line, int fd)
+{
+	if (line != NULL)
+		free(line);
+	close(fd);
+	ft_error(data, "Error\n");
+}
+
+char	**resize_map(t_data *data)
+{
+	char	**new_map;
+	int		i;
+
+	data->map_ct *= 2;
+	new_map = (char **)malloc(sizeof(char *) * (data->map_ct + 1));
+	if (!new_map)
+		return (NULL);
+	i = -1;
+	while (i++ < data->map_sz)
+		new_map[i] = data->map[i];
+	free(data->map);
+	return (new_map);
+}
+
+void	ft_loop_aux(t_data *data, int fd, char *line)
+{
+	while (line != NULL)
+	{
+		if (data->map_sz >= data->map_ct)
+		{
+			data->map = resize_map(data);
+			if (!data->map)
+				free_maperror(data, line, fd);
+		}
+		data->map[data->map_sz] = line;
+		data->map_sz++;
+		line = get_next_line(fd);
+	}
+}
+
 void	save_map(char *str, t_data *data)
 {
 	int		fd;
-	char	**new_map;
 	char	*line;
 	int		i;
 
 	data->map_ct = 10;
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
+		ft_error(data, "Error\n");
 	data->map = (char **)malloc(sizeof(char *) * (data->map_ct + 1));
 	if (!data->map)
-	{
-		ft_putstr_fd("Error\n", 2);
-		close (fd);
-		exit(1);
-	}
+		free_maperror(data, NULL, fd);
 	line = get_next_line(fd);
 	if (line == NULL)
 		ft_error(data, "Error\n");
 	data->len_line = ft_strlen(line);
-	while (line != NULL)
-	{
-		if (data->map_sz >= data->map_ct)
-		{
-			data->map_ct *= 2;
-			new_map = (char **)malloc(sizeof(char *) * (data->map_ct + 1));
-			if (!new_map)
-			{
-				ft_putstr_fd("Error\n", 2);
-				free(line);
-				close(fd);
-				while (data->map_sz > 0)
-				{
-					data->map_sz--;
-					free (data->map[data->map_sz]);
-				}
-				free(data->map);
-				return ;
-			}
-			i = -1;
-			while (i++ < data->map_sz)
-				new_map[i] = data->map[i];
-			free(data->map);
-			data->map = new_map;
-		}
-		data->map[data->map_sz] = line;
-		data->map_sz++;
-		line = get_next_line(fd);
-	}
+	ft_loop_aux(data, fd, line);
 	data->map[data->map_sz] = NULL;
 	close (fd);
 	i = 0;
 	while (i < data->map_sz)
 	{
 		ft_printf(data->map[i]);
-		/*free(data->map[i]);*/
 		i++;
 	}
 	ft_printf("\n");
@@ -91,19 +94,12 @@ int	main(int argc, char *argv[])
 		{
 			save_map(argv[1], &data);
 			ft_parsing(&data);
-			free(data.map);
+			ft_freeall(&data);
 		}
 		else
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
+			ft_error(&data, "Error\n");
 	}
 	else
-	{
-		ft_putstr_fd("Usa: ./so_long <*.ber>\n", 2);
-		return (1);
-	}
-	/*ft_printf("%d\n", data.map_sz);*/
+		ft_error(&data, "Usa: ./so_long <*.ber>\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:02:17 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/01/29 19:13:01 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:13:08 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_data
 	int			count_p;
 	int			count_e;
 	int			count_c;
+	int			**visited;
 }				t_data;
 
 typedef struct s_point
@@ -45,6 +46,8 @@ typedef struct s_point
 void	ft_parsing(t_data *data);
 
 int		ft_error(t_data	*data, char *str);
-void	flood_fill(char **tab, t_point size, t_point begin);
+void	ft_freeall(t_data *data);
+
+int		check_path(char **map, t_point size, t_point start, t_data	*data);
 
 #endif

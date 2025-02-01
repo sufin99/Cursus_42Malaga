@@ -6,61 +6,62 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:11:22 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/01/29 19:24:31 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/01 21:17:00 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
 
-void	fill(char **tab, t_point size, t_point cur, char to_fill)
+int	search_path(char **map, t_point size, t_point pos, t_data *data)
 {
-	if (cur.y < 0 || cur.y >= size.y || cur.x < 0
-		|| cur.x >= size.x || tab[cur.y][cur.x] != to_fill)
-		return ;
-	tab[cur.y][cur.x] = 'F';
-	fill(tab, size, (t_point){cur.x - 1, cur.y}, to_fill);
-	fill(tab, size, (t_point){cur.x + 1, cur.y}, to_fill);
-	fill(tab, size, (t_point){cur.x, cur.y - 1}, to_fill);
-	fill(tab, size, (t_point){cur.x, cur.y + 1}, to_fill);
-}
+	int	i;
 
-void	flood_fill(char **tab, t_point size, t_point begin)
-{
-	fill(tab, size, begin, tab[begin.y][begin.x]);
-}
-
-char	**make_area(char **zone, t_point size)
-{
-	char	**new;
-	int		i;
-	int		j;
-
+	if (pos.x < 0 || pos.x >= size.x || pos.y < 0 || pos.y >= size.y
+		|| map[pos.y][pos.x] == '1' || data->visited[pos.y][pos.x])
+		return (0);
+	data->visited[pos.y][pos.x] = 2;
+	if (map[pos.y][pos.x] == 'C')
+		data->count_c--;
+	if (map[pos.y][pos.x] == 'E')
+		data->count_e--;
+	if (data->count_c == 0 && data->count_e == 0)
+		return (1);
+	t_point	directions[] = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 	i = 0;
-	new = (char **)malloc(sizeof(char *) * size.y + 1);
-	if (!new)
-		return (NULL);
-	while (i < size.y)
+	while (i < 4)
 	{
-		j = 0;
-		new[i] = (char *)malloc(size.x + 1);
-		/* if (!new[i])
-		{
-			while (i > 0)
-			{
-				i--;
-				free(new);
-			}
-			free(new);
-			return (NULL);
-		} */
-		while (j < size.x)
-		{
-			new[i][j] = zone[i][j];
-			j++;
-		}
-		new[i][size.x] = '\0';
+		t_point	new_pos = {pos.x + directions[i].x, pos.y + directions[i].y};
+		if (search_path(map, size, new_pos, data))
+			return (1);
 		i++;
 	}
-	new[size.y] = NULL;
-	return (new);
+	return (0);
+}
+
+int	check_path(char **map, t_point size, t_point start, t_data	*data)
+{
+	t_data	data_copy;
+	int		**visited;
+	int		result;
+	int		i;
+
+	visited = (int **)malloc(sizeof(int *) * size.y);
+	i = 0;
+	while (i < size.y)
+	{
+		visited[i] = (int *)malloc(sizeof(int) * size.x);
+		ft_memset(visited[i], 0, sizeof(int) * size.x);
+		i++;
+	}
+	data->visited = visited;
+	data_copy = *data;
+	result = search_path(map, size, start, &data_copy);
+	i = 0;
+	while (i < size.y)
+	{
+		free(visited[i]);
+		i++;
+	}
+	free(visited);
+	return (result);
 }
