@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:11:22 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/02/01 21:17:00 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:40:16 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	search_path(char **map, t_point size, t_point pos, t_data *data)
 	if (pos.x < 0 || pos.x >= size.x || pos.y < 0 || pos.y >= size.y
 		|| map[pos.y][pos.x] == '1' || data->visited[pos.y][pos.x])
 		return (0);
-	data->visited[pos.y][pos.x] = 2;
+	data->visited[pos.y][pos.x] = '8';
 	if (map[pos.y][pos.x] == 'C')
 		data->count_c--;
 	if (map[pos.y][pos.x] == 'E')
@@ -56,6 +56,8 @@ int	check_path(char **map, t_point size, t_point start, t_data	*data)
 	data->visited = visited;
 	data_copy = *data;
 	result = search_path(map, size, start, &data_copy);
+	/*ft_printf("%d %d\n", data->count_c, data->count_e);
+	ft_printf("%d %d\n", data_copy.count_c, data_copy.count_e);*/
 	i = 0;
 	while (i < size.y)
 	{
