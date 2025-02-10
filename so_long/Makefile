@@ -15,6 +15,7 @@ MLX_DIR = ./MLX42
 MLX = $(MLX_DIR)/build/libmlx42.a
 
 SRC =	./src/so_long.c					\
+		./src/save_map.c					\
 		./src/parsing.c					\
 		./src/utils/utils1.c			\
 		./src/utils/flood_fill.c		\

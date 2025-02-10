@@ -56,8 +56,6 @@ void	ft_freeall(t_data *data)
 	if (data->map)
 		free_ar(data->map);
 	ft_free_mlx(data);
-	/*if (data->numbers)
-		free(data->numbers);*/
 }
 
 void	ft_cleanup(t_data *data)
@@ -66,18 +64,9 @@ void	ft_cleanup(t_data *data)
 	exit(1);
 }
 
-void	ft_close_hook(void *param)
-{
-	t_data *data;
-
-	data = (t_data *)param;
-	ft_cleanup(data);
-}
-
 int	ft_error(t_data	*data, char *str)
 {
 	ft_freeall(data);
-	/*ft_freestacks(data);*/
 	ft_putstr_fd(str, 2);
 	exit(1);
 }

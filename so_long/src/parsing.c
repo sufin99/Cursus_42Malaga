@@ -20,7 +20,6 @@ void	ft_compare_and_path(t_data *data, t_point *size, t_point *start)
 		ft_error(data, "Error: Sólo una 'E' permitida.\n");
 	if (data->count_c <= 0)
 		ft_error(data, "Error: Mínimo una 'C'.\n");
-	/* ft_printf("si\n"); */
 	if (data->count_p == 1)
 	{
 		size->x = data->len_line - 1;
@@ -48,9 +47,10 @@ void	count_char(t_data *data, t_point *start, int i, int j)
 
 void	error_otherchar(t_data *data, int i, int j)
 {
-	if (data->map[i][j] != 'P' && data->map[i][j] != 'E' && data->map[i][j] != 'C' && data->map[i][j] != '1' && data->map[i][j] != '0')
+	if (data->map[i][j] != 'P' && data->map[i][j] != 'E'
+		&& data->map[i][j] != 'C' && data->map[i][j] != '1'
+			&& data->map[i][j] != '0')
 		ft_error(data, "Error: Carácteres Prohibidos.\n");
-	/*ft_printf("%d %d\n", data->map_sz - 1, data->len_line - 2);*/
 	if (data->map_sz - 1 == data->len_line - 2)
 		ft_error(data, "Error: Tiene que ser rectángulo.\n");
 	if (i == 0 || i == data->map_sz - 1)
@@ -63,11 +63,6 @@ void	error_otherchar(t_data *data, int i, int j)
 		if (data->map[i][j] != '1')
 			ft_error(data, "Error: Muros no rodeados.\n");
 	}
-	/*if (data->map[0][j] != '1' || data->map[data->map_sz - 1][j] != '1')
-		ft_error(data, "Error: Muros no rodeados1.\n");
-	ft_printf("%d %d\n", data->map_sz - 1, data->len_line - 2);
-	if (data->map[i][0] != '1' || data->map[i][data->len_line - 2] != '1')
-		ft_error(data, "Error: Muros no rodeados.\n");*/
 }
 
 void	ft_parsing(t_data *data)
@@ -86,16 +81,13 @@ void	ft_parsing(t_data *data)
 		j = 0;
 		while (data->map[i][j] != '\n' && data->map[i][j] != '\0')
 		{
-			/*ft_printf("Checking character at [%d][%d]: %c\n", i, j, data->map[i][j]);*/
 			error_otherchar(data, i, j);
 			count_char(data, &start, i, j);
 			j++;
 		}
-		/* ft_printf("%d\n", j); */
 		if (data->len_line - 1 != j)
 			ft_error(data, "Error: Las líneas no son del mismo tamaño.\n");
 		i++;
 	}
 	ft_compare_and_path(data, &size, &start);
-	/*ft_printf("%d %d\n", start.x, start.y);*/
 }

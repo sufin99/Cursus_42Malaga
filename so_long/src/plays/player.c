@@ -26,17 +26,15 @@ void	ft_move_player(t_data *data, int new_x, int new_y)
 		if (data->map[new_y][new_x] == 'C')
 		{
 			data->rec_c++;
-			ft_printf("Te faltan %d coleccionables.\n", data->count_c - data->rec_c);
+			ft_printf("Te faltan %d coleccionables.\n",
+				data->count_c - data->rec_c);
 		}
 		if (data->map[new_y][new_x] == 'E')
 		{
 			if (data->rec_c == data->count_c)
 				ft_end_game(data);
 			else
-			{
-				ft_printf("Todavía te faltan coleccionables.\n");
 				return ;
-			}
 		}
 		data->map[data->player.player_y][data->player.player_x] = '0';
 		data->player.player_x = new_x;
