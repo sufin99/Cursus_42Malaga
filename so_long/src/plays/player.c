@@ -37,12 +37,14 @@ void	ft_move_player(t_data *data, int new_x, int new_y)
 				return ;
 		}
 		data->map[data->player.player_y][data->player.player_x] = '0';
+		draw_cell(data, '0', data->player.player_x * T_SIZE, data->player.player_y * T_SIZE);
 		data->player.player_x = new_x;
 		data->player.player_y = new_y;
 		data->map[data->player.player_y][data->player.player_x] = 'P';
+		draw_cell(data, 'P', data->player.player_x * T_SIZE, data->player.player_y * T_SIZE);
 		data->count_mov++;
 		ft_printf("Número de movimientos: %d.\n", data->count_mov);
-		ft_draw_map(data);
+		/*ft_draw_map(data);*/
 	}
 }
 

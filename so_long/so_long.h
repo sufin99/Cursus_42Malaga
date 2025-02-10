@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:02:17 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 14:35:25 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:54:32 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "./libft/libft.h"
 # include "./get_next_line/get_next_line_bonus.h"
 # include "./MLX42/include/MLX42/MLX42.h"
-# define T_SIZE 64
+# define T_SIZE 48
 
 typedef struct s_mlx_data
 {
@@ -81,6 +81,7 @@ int		check_path(char **map, t_point size, t_point start, t_data	*data);
 
 void	ft_init_mlx(t_data *data);
 void	ft_draw_map(t_data *data);
+void	draw_cell(t_data *data, char cell, int x, int y);
 
 void	ft_key_hook(mlx_key_data_t keydata, void *param);
 
