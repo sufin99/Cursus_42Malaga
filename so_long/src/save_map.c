@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:34:34 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/02/10 14:35:01 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:20:13 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	save_map(char *str, t_data *data)
 {
 	int		fd;
 	char	*line;
-	int		i;
 
 	data->map_ct = 10;
 	fd = open(str, O_RDONLY);
@@ -72,11 +71,4 @@ void	save_map(char *str, t_data *data)
 	ft_loop_aux(data, fd, line);
 	data->map[data->map_sz] = NULL;
 	close (fd);
-	i = 0;
-	while (i < data->map_sz)
-	{
-		ft_printf(data->map[i]);
-		i++;
-	}
-	ft_printf("\n");
 }

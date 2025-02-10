@@ -75,7 +75,6 @@ void	ft_parsing(t_data *data)
 	ft_memset(&size, 0, sizeof(t_point));
 	ft_memset(&start, 0, sizeof(t_point));
 	i = 0;
-	ft_printf("%d %d\n", data->len_line, data->map_sz);
 	while (i < data->map_sz)
 	{
 		j = 0;
