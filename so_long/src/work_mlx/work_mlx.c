@@ -20,17 +20,32 @@ void	ft_close_hook(void *param)
 	ft_cleanup(data);
 }
 
+void	ft_load_textures(t_data *data)
+{
+	data->mlx.texture_p = mlx_load_png("./img/p_sp.png");
+	if (!data->mlx.texture_p)
+		ft_error(data, "Error: No se encuentra la imagen\n");
+	data->mlx.texture_e = mlx_load_png("./img/e_sp.png");
+	if (!data->mlx.texture_e)
+		ft_error(data, "Error: No se encuentra la imagen\n");
+	data->mlx.texture_c = mlx_load_png("./img/c_sp.png");
+	if (!data->mlx.texture_c)
+		ft_error(data, "Error: No se encuentra la imagen\n");
+	data->mlx.texture_floor = mlx_load_png("./img/f_sp.png");
+	if (!data->mlx.texture_floor)
+		ft_error(data, "Error: No se encuentra la imagen\n");
+	data->mlx.texture_wall = mlx_load_png("./img/w_sp.png");
+	if (!data->mlx.texture_wall)
+		ft_error(data, "Error: No se encuentra la imagen\n");
+}
+
 void	ft_init_mlx(t_data *data)
 {
 	data->mlx.init = mlx_init(data->len_line * T_SIZE,
 			data->map_sz * T_SIZE, "so_long", true);
 	if (!data->mlx.init)
 		ft_error(data, "Error: No se ha iniciado MLX.\n");
-	data->mlx.texture_p = mlx_load_png("./img/p_sp.png");
-	data->mlx.texture_e = mlx_load_png("./img/e_sp.png");
-	data->mlx.texture_c = mlx_load_png("./img/c_sp.png");
-	data->mlx.texture_floor = mlx_load_png("./img/f_sp.png");
-	data->mlx.texture_wall = mlx_load_png("./img/w_sp.png");
+	ft_load_textures(data);
 	data->mlx.img_p = mlx_texture_to_image(data->mlx.init, data->mlx.texture_p);
 	data->mlx.img_e = mlx_texture_to_image(data->mlx.init, data->mlx.texture_e);
 	data->mlx.img_c = mlx_texture_to_image(data->mlx.init, data->mlx.texture_c);
