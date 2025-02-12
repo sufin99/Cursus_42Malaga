@@ -19,32 +19,41 @@ void	ft_end_game(t_data *data)
 	exit(1);
 }
 
+void	ft_collect(t_data *data, int new_x, int new_y)
+{
+	if (data->map[new_y][new_x] == 'C')
+	{
+		data->rec_c++;
+		ft_printf("Te faltan %d coleccionables.\n",
+			data->count_c - data->rec_c);
+	}
+	if (data->map[new_y][new_x] == 'E')
+	{
+		if (data->rec_c == data->count_c)
+			ft_end_game(data);
+		else
+		{
+			ft_printf("Todavía te faltan coleccionables");
+			return ;
+		}
+	}
+}
+
 void	ft_move_player(t_data *data, int new_x, int new_y)
 {
 	if (data->map[new_y][new_x] != '1')
 	{
-		if (data->map[new_y][new_x] == 'C')
-		{
-			data->rec_c++;
-			ft_printf("Te faltan %d coleccionables.\n",
-				data->count_c - data->rec_c);
-		}
-		if (data->map[new_y][new_x] == 'E')
-		{
-			if (data->rec_c == data->count_c)
-				ft_end_game(data);
-			else
-				return ;
-		}
+		ft_collect(data, new_x, new_y);
 		data->map[data->player.player_y][data->player.player_x] = '0';
-		draw_cell(data, '0', data->player.player_x * T_SIZE, data->player.player_y * T_SIZE);
+		draw_cell(data, '0', data->player.player_x * T_SIZE,
+			data->player.player_y * T_SIZE);
 		data->player.player_x = new_x;
 		data->player.player_y = new_y;
 		data->map[data->player.player_y][data->player.player_x] = 'P';
-		draw_cell(data, 'P', data->player.player_x * T_SIZE, data->player.player_y * T_SIZE);
+		draw_cell(data, 'P', data->player.player_x * T_SIZE,
+			data->player.player_y * T_SIZE);
 		data->count_mov++;
 		ft_printf("Número de movimientos: %d.\n", data->count_mov);
-		/*ft_draw_map(data);*/
 	}
 }
 
