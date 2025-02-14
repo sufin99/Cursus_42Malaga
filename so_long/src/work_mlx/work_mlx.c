@@ -41,7 +41,7 @@ void	ft_load_textures(t_data *data)
 
 void	ft_init_mlx(t_data *data)
 {
-	data->mlx.init = mlx_init(data->len_line * T_SIZE,
+	data->mlx.init = mlx_init((data->len_line - 1) * T_SIZE,
 			data->map_sz * T_SIZE, "so_long", true);
 	if (!data->mlx.init)
 		ft_error(data, "Error: No se ha iniciado MLX.\n");
