@@ -6,7 +6,7 @@
 /*   By: szaghdad <szaghdad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 18:27:18 by szaghdad          #+#    #+#             */
-/*   Updated: 2025/05/07 13:03:11 by szaghdad         ###   ########.fr       */
+/*   Updated: 2025/05/07 19:10:30 by szaghdad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	init_values(t_philo *philos, t_params *params, int i)
 void	set_philos(char **argv, t_list *program, t_philo *philos,
 	pthread_mutex_t *forks)
 {
-	t_params params;
-	int	i;
+	t_params	params;
+	int			i;
 
 	i = 0;
 	params.argv = argv;
